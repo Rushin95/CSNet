@@ -1,0 +1,19 @@
+{
+  "name": "cs-net",
+  "version": "1.0.0",
+  "description": "CMPE 281 Class Project - Community Oriented Social Network",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keyurgolani/CSNet.git"
+  },
+  "author": "Keyur Golani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keyurgolani/CSNet/issues"
+  },
+  "homepage": "https://github.com/keyurgolani/CSNet#readme"
+}
