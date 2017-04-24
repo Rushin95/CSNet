@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+   <link rel='stylesheet' href='/stylesheets/style.css' /> 
+	<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="angularjs/calc.js"></script>
+    
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Loading the AngularJS file from /public/angularJS folder -->
+  </head>
+  
+  
+   
+  <body ng-app="calc" ng-controller="calc" class="container">
+   
+    <div class="container" style="border: 1px solid">
+      <h1>Welcome to <%= title %></h1><br><br><br>
+    <div class="row">
+      <div class="col-lg-3"></div>
+       <div class="col-lg-6">
+
+     <input id="num1" ng-model="num1" placeholder="Enter first operand" required> <br><br><br>
+    
+    	<button class="btn btn-primary" ng-click="operation('+');">+</button>
+    	<button class="btn btn-primary" ng-click="operation('-');">-</button>
+    	<button class="btn btn-primary" ng-click="operation('*');">*</button>
+    	<button class="btn btn-primary" ng-click="operation('/');">/</button> <br><br><br>
+   				 
+	    <input id="num2" ng-model="num2" placeholder="Enter first operand" required><br><br><br>
+    
+		<input type="submit" value="calculate" ng-click="calculate();"><br><br><br>
+	<h1>Output : {{result}}</h1>
+   </div>
+
+   <div class="col-lg-3"></div>
+    
+  </body>
+</html>

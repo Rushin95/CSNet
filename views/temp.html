@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+<!--     <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<!-- Loading the AngularJS file from /public/angularJS folder -->
+  </head>
+  
+  
+  <body ng-app="calc" ng-controller="calc">
+    <h1><%= title %></h1>
+     <input id="num1" ng-model="num1">
+    
+	<button type="button" ng-model="plus" >+</button>
+	<button type="button" ng-model="minus">-</button>
+	<button type="button" ng-model="divide">/</button>
+	<button type="button" ng-model="multiply">*</button>
+		
+	
+    <input id="num2" ng-model="num2" >
+    
+	<input type="submit" value="calculate" ng-click="calculate();">
+	<br>
+	{{result}}
+   
+    
+  </body>
+</html>
