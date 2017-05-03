@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/bootstrap.css" rel="stylesheet">
+ 	<link href="style.css" rel="stylesheet">
+  	<title>Sign Up</title>
+
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css'/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-input-masks/2.5.0/angular-input-masks-standalone.min.js"></script>
+  </head>
+  <body style="background-color:#f2f2f2;">
+	<div>
+  		<div class="row">
+			<div class="container">    
+			<div id="loginbox" style="margin-top:50px;margin-left: 30%;" class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+				<div class="panel panel-info account-box-body" style="width: 450px;">
+					<div class="panel-heading heading">
+						<div class="heading-text panel-title" style="font-size: 30px!important;">Sign In</div>
+					</div>     
+					<div class="panel-body" >
+						<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+						<form id="loginform" class="form-horizontal" role="form">
+							<div style="margin-bottom: 25px" class="input-group">
+								<span class="input-group-addon login-glyph"><i class="glyphicon glyphicon-user"></i></span>
+								<input id="login-username" type="text" class="form-control account-box" name="username" value="" placeholder="Username or Email">
+							</div>
+							<div style="margin-bottom: 25px" class="input-group">
+								<span class="input-group-addon login-glyph"><i class="glyphicon glyphicon-lock"></i></span>
+								<input id="login-password" type="password" class="form-control account-box" name="password" placeholder="Password">
+							</div>
+							<div class="input-group">
+							  	<div class="checkbox" style="padding-top: 0px;">
+									<label class="remember">
+								  		<input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+									</label>
+							  	</div>
+							</div>
+							<div style="margin-top:10px" class="form-group">
+								<div class="col-sm-12 controls">
+								  	<div class="col-md-4" style="padding-left: 0px;">
+										<button id="login" type="button" class="login btn btn-success">Login</button>
+									</div> 
+								  	<div class="col-md-4" style="text-align: center;padding-right: 0px;padding-left: 5px;margin-left: -10px;">
+										<button id="btn-fbsignup" type="button" class="fb-login btn"><i class="fa fa-facebook" style="margin-right: 10px;"></i>Facebook</button>
+									</div> 
+									<div class="col-md-4" style="text-align: right;padding-right: 0px;padding-left: 5px;margin-left: 10px;">
+										<button id="btn-gsignup" type="button" class="google-login btn"><i class="fa fa-google" style="margin-right: 10px;"></i>Google</button>
+									</div> 
+								</div>
+							</div>
+							<div class="form-group" style="margin-bottom: 0px;">
+								<div class="col-md-12 control" style="border-top: 1px solid white;">
+									<div style="padding-top:30px; font-size:16px;color:white;" class="col-md-7">
+										Don't have an account !
+									</div>
+									<div class="col-md-5" style="text-align: right;padding-top:15px;padding-left: 0px;padding-right: 0px;">
+										<button id="btn-gsignup" type="button" class="account-change btn btn-success" onClick="$('#loginbox').hide(); $('#signupbox').show()">Sign In</button>
+									</div>
+								</div>
+							</div>   
+						</form>     
+					</div>                     
+				</div>  
+			</div>
+			<div id="signupbox" style="display:none; margin-top:50px;margin-left: 30%;" class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				<div class="panel panel-info account-box-body" style="width: 450px;">
+					<div class="panel-heading heading">
+						<div class="panel-title heading-text" style="font-size: 30px!important;">Sign Up</div>
+					</div>  
+					<div class="panel-body" >
+						<form id="signupform" class="form-horizontal" role="form">
+							<div id="signupalert" style="display:none" class="alert alert-danger">
+								<p>Error:</p>
+								<span></span>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<input type="email" class="form-control signup-fields-box" id="email" placeholder="Enter email">
+								</div>	
+							</div>
+							<div class="form-group">
+								<div class="col-md-6">
+									<input type="text" class="form-control signup-fields-box" name="firstname" placeholder="First Name">
+								</div>
+								<div class="col-md-6">
+									<input type="text" class="form-control signup-fields-box" name="lastname" placeholder="Last Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<input type="password" class="form-control signup-fields-box" name="passwd" placeholder="Password">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-12">
+									<input type="text" class="form-control signup-fields-box" name="icode" placeholder="Company Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<input type="text" class="form-control signup-fields-box" name="icode" placeholder="Contact">
+								</div>
+							</div>
+							<div class="form-group">                                       
+								<div class="col-md-12">
+									<button id="btn-signup" type="button" class="btn btn-info signup-button"><i class="icon-hand-right"></i>Create Account</button>
+								</div>
+							</div>
+							<div class="form-group">                                       
+								<div class="col-md-3">
+									<hr class="style1">
+								</div>
+								<div class="col-md-6" style="margin-top: 10px;text-align: center;padding: 0px;">
+									<span class="signup-text">or sign up with social media</span>
+								</div>
+								<div class="col-md-3">
+									<hr class="style1">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6" style="text-align: center;">
+									<button id="btn-fbsignup" type="button" class="fb-btn btn"><i class="fa fa-facebook" style="margin-right: 10px;"></i>Facebook</button>
+								</div> 
+								<div class="col-md-6" style="text-align: center;">
+									<button id="btn-gsignup" type="button" class="google-btn btn"><i class="fa fa-google" style="margin-right: 10px;"></i>Google</button>
+								</div>                                         
+							</div>
+							<div class="form-group" style="margin-bottom: 0px;">
+								<div class="col-md-12 control" style="border-top: 1px solid white;">
+									<div style="padding-top:30px; font-size:16px;color:white;" class="col-md-7">
+										Already have an account !
+									</div>
+									<div class="col-md-5" style="text-align: center;padding-top:15px;padding-left: 0px;">
+										<button id="btn-gsignup" type="button" class="account-change btn btn-success" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+  	</div>
+  </body>
+</html>

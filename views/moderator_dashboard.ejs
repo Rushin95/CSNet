@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="modules/roboto-fontface/css/roboto/roboto-fontface.css">
+  <link href="modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="modules/font-awesome/css/font-awesome.css">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Community Dashboard</title>
+  <script type="text/javascript" src="modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="modules/angular/angular.js"></script>
+  <script type="text/javascript" src="ngjs/moderator_dashboard.js"></script>
+</head>
+
+<body style="background-color:#f2f2f2;" ng-app="myApp">
+  <div ng-controller="moderatorDashboard">
+    <div class="row community-heading">
+      <div class="col-md-2 fa fa-users h1" style="text-align: right;border-right: 2px solid #3B3E43;margin-top: 12px;"></div>
+      <div class="col-md-8">
+        <span class="h1">{{community_name}}</span>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="margin-top:50px;">
+        <div class="row" style="margin-top: 50px;">
+          <div class="comm-dashboard-box col-md-12" style="padding: 30px; ">
+            <div class="row ">
+              <div class="col-md-6 graph-box">
+              </div>
+              <div class="col-md-6">
+                <form>
+                  <div class="form-group">
+                    <label for="role">Role</label>
+                    <input id="role" type="text" class="form-control" placeholder="Enter role">
+                  </div>
+                  <div class="form-group">
+                    <label for="level">Level</label>
+                    <select id="level" ng-init="form.level = form.levels[0]" class="form-control" ng-model="form.level" ng-options="level for level in form.levels"></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="desc">Description</label>
+                    <textarea class="form-control" ng-model="form.desc" id="desc" rows="3"></textarea>
+                  </div>
+                  <div class="form-check" style="margin-bottom: 10px;">
+                    <label class="form-check-label" style="display: inline-flex;">
+                                            <input type="checkbox" class="form-check-input" ng-model="form.replace" style="transform: scale(1.5);margin-top: 6px;">
+                                            <div style="margin-left: 20px;">Replace current employee</div>
+                                        </label>
+                  </div>
+                  <div class="form-group" ng-show="form.replace">
+                    <label for="current_name">Current employee name</label>
+                    <input type="text" ng-model="form.current_name" id="current_name" class="form-control" placeholder="Enter current employee name">
+                  </div>
+                  <div class="form-group">
+                    <label for="new_name">New employee name</label>
+                    <input type="text" id="new_name" ng-model="form.new_name" class="form-control" placeholder="Enter new employee name">
+                  </div>
+                  <div class="form-group">
+                    <label for="new_email">New employee email</label>
+                    <input type="email" ng-model="form.new_email" id="new_email" class="form-control" placeholder="Enter new employee email">
+                  </div>
+                  <div class="col-md-6" ng-hide="form.replace"><button type="submit" class="btn btn-success form-buttons form-control" ng-click="addRole()">Add</button></div>
+                  <div class="col-md-6" ng-show="form.replace"><button type="submit" class="btn btn-success form-buttons form-control" ng-click="updateRole()">Update</button></div>
+                  <div class="col-md-6"><button type="submit" class="btn btn-success form-buttons form-control" ng-click="resetRole()">Clear</button></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 "></div>
+    </div>
+  </div>
+</body>
+
+</html>
