@@ -8,9 +8,12 @@ var sendmail = require('sendmail')();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('index', {
-		title: 'Calculator'
-	});
+	res.render('accounts', {});
+});
+
+router.get('/communities', function(req, res, next) {
+	// logger.log('info','inside /signup get');
+	res.render('communities', {});
 });
 
 router.get('/signup', function(req, res, next) {
@@ -120,6 +123,7 @@ router.post('/afterSignIn', function(req, res, next) {
 
 });
 
+
 router.post('/register', function(req, res, next) {
 	var first_name = req.body.firstname;
 
@@ -176,6 +180,75 @@ router.post('/register', function(req, res, next) {
 	res.send({
 		"statusCode": statusCode
 	});
+
+});
+
+
+
+router.post('/getCommunity', function(req, res, next) {
+
+
+	var query_string = "select * from app_details where owner=?";
+	var owner = 1;
+
+	var JSON_query = {
+		"owner": owner	
+	};
+
+	mysql.executeQuery(function(err, results) {
+		if (err) {
+			statusCode = 401;
+			throw err;
+		} else {
+			if (results) {
+				logger.log('info', 'fetching of community successful');
+				console.log(results);
+				JSON_obj = {
+						"community" : results
+				}
+				res.send(JSON_obj);
+			} else {
+				logger.log('info', 'fetching of community failed');
+				// statusCode = 401;
+				// res.send({"statusCode" : statusCode});
+			}
+		}
+		// console.log("statusCode", statusCode);
+	}, query_string, JSON_query);
+
+});
+
+router.post('/community', function(req, res, next) {
+
+	var name = req.body.community;
+	// console.log("community", community);
+	var owner = req.session.username;
+	// var owner = 1;
+	var query_string = "INSERT INTO app_details SET ?";
+
+	var JSON_query = {
+
+		"name": name,
+		"owner" : owner		
+	};
+
+	mysql.executeQuery(function(err, results) {
+		if (err) {
+			statusCode = 401;
+			throw err;
+		} else {
+			if (results.affectedRows === 1) {
+				logger.log('info', 'insertion of community successful');
+				statusCode = 200;
+				// res.send({"statusCode" : statusCode});
+			} else {
+				logger.log('info', 'insertion of community failed');
+				statusCode = 401;
+				// res.send({"statusCode" : statusCode});
+			}
+		}
+		console.log("statusCode", statusCode);
+	}, query_string, JSON_query);
 
 });
 

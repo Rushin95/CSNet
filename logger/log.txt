@@ -28,5 +28,46 @@
 {"level":"info","message":"inside /signin get","timestamp":"2017-04-30T04:03:39.191Z"}
 {"level":"info","message":"inside /signin get","timestamp":"2017-04-30T04:04:06.258Z"}
 {"level":"info","message":"inside /signin get","timestamp":"2017-04-30T04:07:16.971Z"}
+<<<<<<< HEAD
 {"level":"info","message":"inside /signin get","timestamp":"2017-05-16T00:52:57.482Z"}
 {"level":"info","message":"inside /afterSignIn post","timestamp":"2017-05-16T00:53:02.723Z"}
+=======
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:48:08.980Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:51.079Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:54.768Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:55.447Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:55.616Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:55.768Z"}
+>>>>>>> ee90036af5ed6a8614e72be3db66ca805c11203e
+{"level":"info","message":"inside /afterSignIn post","timestamp":"2017-05-16T01:07:35.560Z"}
+{"level":"info","message":"inside /signin get","timestamp":"2017-05-16T01:10:01.141Z"}
+{"level":"info","message":"inside /signin get","timestamp":"2017-05-16T01:10:23.396Z"}
+{"level":"info","message":"inside /signin get","timestamp":"2017-05-16T01:10:28.196Z"}
+{"level":"info","message":"inside /signin get","timestamp":"2017-05-16T01:28:46.110Z"}
+{"level":"info","message":"insertion of community successful","timestamp":"2017-05-16T01:33:40.033Z"}
+{"level":"info","message":"fetching000 of community failed","timestamp":"2017-05-16T01:56:15.946Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T01:57:20.702Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T01:57:39.431Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T01:59:19.789Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T01:59:49.755Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T02:01:45.808Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T02:01:58.286Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T02:02:34.164Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T02:02:39.111Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T02:03:07.732Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T02:03:12.730Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T02:03:22.407Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T02:03:27.038Z"}
+{"level":"info","message":"fetching of community failed","timestamp":"2017-05-16T02:03:41.401Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:04:03.110Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:04:11.029Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:04:14.792Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:05:04.992Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:05:12.352Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:07:55.553Z"}
+{"level":"info","message":"insertion of community successful","timestamp":"2017-05-16T02:08:29.773Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:10:43.214Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:11:35.281Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:11:52.482Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:12:50.330Z"}
+{"level":"info","message":"fetching of community successful","timestamp":"2017-05-16T02:13:36.896Z"}
