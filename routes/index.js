@@ -8,18 +8,15 @@ router.get('/', function(req, res, next) {
 	res.render('accounts', {});
 });
 
+router.get('/communities', function(req, res, next) {
+	res.render('communities', {});
+});
+
 router.get('/moderator_dashboard', function(req, res, next) {
 	res.render('moderator_dashboard', {});
 });
 
 router.post('/signup', function(req, res, next) {
-	var first_name = req.body.firstname;
-	var last_name = req.body.lastname;
-	var email = req.body.email;
-	var secret = req.body.password;
-	var company = req.body.company;
-	var contact = req.body.contact;
-
 	mysql.executeQuery(function(err, results) {
 		if (err) {
 			res.send({
@@ -37,12 +34,12 @@ router.post('/signup', function(req, res, next) {
 			}
 		}
 	}, "INSERT INTO user_details SET ?", {
-		"f_name": first_name,
-		"l_name": last_name,
-		"email": email,
-		"password": secret,
-		"contact": contact,
-		"company": company
+		"f_name": req.body.firstname,
+		"l_name": req.body.lastname,
+		"email": req.body.email,
+		"password": req.body.password,
+		"contact": req.body.company,
+		"company": req.body.contact
 	});
 });
 
@@ -83,8 +80,47 @@ router.post('/signin', function(req, res, next) {
 				});
 			}
 		}
-	}, "select * from user_details where email=?", [email]);
+	}, "select * from user_details where email = ?", [email]);
 
+});
+
+
+
+router.post('/getCommunity', function(req, res, next) {
+	mysql.executeQuery(function(err, results) {
+		if (err) {
+			res.send({
+				'statusCode': 401
+			})
+		} else {
+			res.send(results);
+		}
+	}, "select * from app_details where owner = ?", {
+		"owner": req.session.user.user_id
+	});
+});
+
+router.post('/community', function(req, res, next) {
+	mysql.executeQuery(function(err, results) {
+		if (err) {
+			res.send({
+				"statusCode": 401
+			});
+		} else {
+			if (results.affectedRows === 1) {
+				res.send({
+					"statusCode": 200
+				});
+			} else {
+				res.send({
+					"statusCode": 401
+				});
+			}
+		}
+	}, "INSERT INTO app_details SET ?", {
+		"name": req.body.community,
+		"owner": req.session.username
+	});
 });
 
 router.post('/addRole', function(req, res, next) {

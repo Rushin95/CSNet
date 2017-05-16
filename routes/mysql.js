@@ -10,7 +10,7 @@ function getConnection() {
 	var connection = mysql.createConnection({
 		host: 'localhost',
 		user: 'root',
-		password: 'admin',
+		password: 'welcome123#',
 		database: 'csnet',
 		port: 3306
 	});
