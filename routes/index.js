@@ -28,11 +28,101 @@ router.get('/messages', function(req, res, next) {
 	res.render('message_box', {});
 });
 
+router.get('/graph', function(req, res, next) {
+	res.render('graph', {});
+});
+
 router.post('/logout', function(req, res, next) {
 	req.session.user = undefined;
 	res.send({
 		'statusCode': 200
 	});
+});
+
+router.post('/GraphJson', function(req, res, next) {
+	//CHANGE
+	appid = 3;
+
+
+
+	var data1 = {
+		"name": "Hardik - Moderator",
+		"children": [{
+				"name": "Keyur-Manager",
+				"children": [{
+						"name": "SERVICE",
+						"children": [{
+							"name": "rushin",
+							"children": []
+						}]
+					},
+					{
+						"name": "GARDENING",
+						"children": [{
+							"name": "ved",
+							"children": []
+						}]
+					},
+					{
+						"name": "POOL CLEANING",
+						"children": [{
+							"name": "ankit",
+							"children": []
+						}]
+					}
+
+				]
+			},
+			{
+				"name": "Kalgi- Admin",
+				"children": [{
+						"name": "Office staff",
+						"children": [{
+							"name": "Maria",
+							"children": []
+						}]
+					},
+					{
+						"name": "Office staff",
+						"children": [{
+							"name": "Jason",
+							"children": []
+						}]
+					},
+					{
+						"name": "PR",
+						"children": [{
+							"name": "Jack",
+							"children": []
+						}]
+					}
+
+				]
+			},
+
+		]
+	};
+
+
+	mysql.executeQuery(function(err, results) {
+		if (err) {
+			res.send({
+				"statusCode": 401
+			});
+		} else {
+			if (results) {
+
+				res.send({
+					"graph": data1
+					// (JSON.stringify(data1, null, " "))
+				});
+			} else {
+				res.send({
+					"statusCode": 401
+				});
+			}
+		}
+	}, "SELECT * FROM role_details WHERE appid = ?", appid);
 });
 
 router.post('/signup', function(req, res, next) {

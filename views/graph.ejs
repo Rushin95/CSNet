@@ -1,0 +1,337 @@
+<html>
+
+<head>
+    <style id="stndz-style"></style>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
+    <!-- <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+
+      <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+ -->
+
+
+    <script type="text/javascript" src="modules/angular/angular.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="/css/result-light.css"> -->
+    <style type="text/css">
+        body {
+            background: #aae;
+        }
+
+        .node {
+            cursor: pointer;
+
+        }
+
+        .node circle {
+            /*fill: #fff;
+                stroke: steelblue;*/
+            stroke-width: 3px;
+        }
+
+        .node rect {
+            /*fill: black;*/
+            stroke: pink;
+            stroke-width: 5;
+            /*fill-opacity: 0.1;*/
+            stroke-opacity: 0.9;
+
+        }
+
+        .node text {
+
+            font: 12px sans-serif;
+            /*fill: #fff;*/
+            fill: black;
+        }
+
+        .link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 2px;
+        }
+
+        .tree {
+            margin-bottom: 10px;
+            overflow: auto;
+        }
+    </style>
+
+    <title> by syedbilal</title>
+
+
+
+
+
+</div ng-app="myApp" ng-controller="graph">
+
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        $(window).load(function() {
+            $(document).ready(function() {
+                //build tree
+                function BuildVerticaLTree(treeData, treeContainerDom) {
+                    var margin = {
+                        top: 20,
+                        right: 120,
+                        bottom: 0,
+                        left: 120
+                    };
+                    var width = 960 - margin.right - margin.left;
+                    var height = 900 - margin.top - margin.bottom;
+
+                    var i = 0,
+                        duration = 750;
+                    var tree = d3.layout.tree()
+                        .size([height, width]);
+                        // .separation(function(a,b){
+                        //   var width = a.width + b.width,
+                        //   distance = width / 2 + 16; // horizontal distance between nodes = 16
+                        //   return distance;
+                        // });
+
+
+                    var diagonal = d3.svg.diagonal()
+                        .projection(function(d) {
+                            return [d.x, d.y];
+                        });
+
+                    var svg = d3.select(treeContainerDom).append("svg")
+                        .attr("width", width + margin.right + margin.left)
+                        .attr("height", height + margin.top + margin.bottom)
+                        .append("g")
+                        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                    root = treeData;
+
+                    update(root);
+
+              //  tree.separation(function separation(a, b) { return a.parent == b.parent ? 1 : 5.5; });
+                    function update(source) {
+                        // Compute the new tree layout.
+                        var nodes = tree.nodes(root).reverse(),
+                            links = tree.links(nodes);
+                        // Normalize for fixed-depth.
+                        nodes.forEach(function(d) {
+                            // d.y = d.depth * 100;
+                            d.y = d.depth * 100;
+
+                          });
+                        // Declare the nodes…
+                        var node = svg.selectAll("g.node")
+                            .data(nodes, function(d) {
+                                return d.id || (d.id = ++i);
+                            });
+                        // Enter the nodes.
+                        var nodeEnter = node.enter().append("g")
+                            .attr("class", "node")
+                            .attr("transform", function(d) {
+                                return "translate(" + source.x0 + "," + source.y0 + ")";
+                            }).on("click", nodeclick);
+                        nodeEnter.append("rect")
+                            .attr("x", -50)
+                            .attr("y", 0)
+                            .attr("width", 100)
+                            .attr("height", 20)
+                            <!-- .attr("r", 10) -->
+                            .attr("stroke", function(d) {
+                                return d.children || d._children ? "steelblue" : "#00c13f";
+                            })
+                            .style("fill", function(d) {
+                                return d.children || d._children ? "lightsteelblue" : "#fff";
+                            });
+                        //.attr("r", 10)
+                        //.style("fill", "#fff");
+                        nodeEnter.append("text")
+                            .attr("x", -5)
+                            .attr("y", 10)
+                            .attr("y", function(d) {
+                                return d.children || d._children ? -18 : 18;
+                            })
+                            .attr("dy", ".35em")
+                            .attr("text-anchor", "middle")
+                            .text(function(d) {
+                                return d.name;
+                            })
+                            .style("fill-opacity", 1e-6);
+                        // Transition nodes to their new position.
+                        //horizontal tree
+                        var nodeUpdate = node.transition()
+                            .duration(duration)
+                            .attr("transform", function(d) {
+                                return "translate(" + d.x + "," + d.y + ")";
+                            });
+                        nodeUpdate.select("rect")
+                            <!-- .attr("r", 10) -->
+                            .attr("x", -50)
+                            .attr("y", 0)
+                            .attr("width", 100)
+                            .attr("height", 20)
+                            .style("fill", function(d) {
+                                return d._children ? "lightsteelblue" : "#fff";
+                            });
+                        nodeUpdate.select("text")
+                            .attr("x", -5)
+                            .attr("y", 10)
+                            .style("fill-opacity", 1);
+
+
+
+                        // Transition exiting nodes to the parent's new position.
+                        var nodeExit = node.exit().transition()
+                            .duration(duration)
+                            .attr("transform", function(d) {
+                                return "translate(" + source.x + "," + source.y + ")";
+                            })
+                            .remove();
+                        nodeExit.select("rect")
+                            <!-- .attr("r", 1e-6); -->
+                            .attr("x", -50)
+                            .attr("y", 0)
+                            .attr("width", 100)
+                            .attr("height", 20)
+                        nodeExit.select("text")
+                            .attr("x", -5)
+                            .attr("y", 10)
+                            .style("fill-opacity", 1e-6);
+
+                        // Update the links…
+                        // Declare the links…
+                        var link = svg.selectAll("path.link")
+                            .data(links, function(d) {
+                                return d.target.id;
+                            });
+                        // Enter the links.
+                        link.enter().insert("path", "g")
+                            .attr("class", "link")
+
+                            .attr("d", function(d) {
+                                var o = {
+                                    x: source.x0,
+                                    y: source.y0
+                                };
+                                return diagonal({
+                                    source: o,
+                                    target: o
+                                });
+                            });
+                        // Transition links to their new position.
+                        link.transition()
+                            .duration(duration)
+                            .attr("d", diagonal);
+
+
+                        // Transition exiting nodes to the parent's new position.
+                        link.exit().transition()
+                            .duration(duration)
+                            .attr("d", function(d) {
+                                var o = {
+                                    x: source.x,
+                                    y: source.y
+                                };
+                                return diagonal({
+                                    source: o,
+                                    target: o
+                                });
+                            })
+                            .remove();
+
+                        // Stash the old positions for transition.
+                        nodes.forEach(function(d) {
+                            d.x0 = d.x;
+                            d.y0 = d.y;
+                        });
+                    }
+
+                    // Toggle children on click.
+                    function nodeclick(d) {
+                        if (d.children) {
+                            d._children = d.children;
+                            d.children = null;
+                        } else {
+                            d.children = d._children;
+                            d._children = null;
+                        }
+                        update(d);
+                    }
+                }
+
+                var xmlhttp = new XMLHttpRequest();
+                var url = "/GraphJson";
+
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var myArr = JSON.parse(this.responseText);
+
+                        var treeData = myArr.graph;
+                        BuildVerticaLTree(treeData, "#tree");
+                        console.log("myArr.graph", myArr.graph);
+                        // myFunction(myArr);
+                    }
+                };
+                xmlhttp.open("POST", url, true);
+                xmlhttp.send();
+            });
+        }); //]]>
+    </script>
+</div>
+
+</head>
+
+<body ng-app="myApp" ng-controller="graph" class="container" ng-init="load();" ng-cloak>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <div id="tree">
+    <div id="demo">
+
+        <!-- <svg width="960" height="500"><g transform="translate(120,40)">
+      <path class="link" d="M188.57142857142856,100C188.57142857142856,150 125.71428571428571,150 125.71428571428571,200"></path>
+      <path class="link" d="M188.57142857142856,100C188.57142857142856,150 251.42857142857142,150 251.42857142857142,200"></path>
+      <path class="link" d="M251.42857142857142,0C251.42857142857142,50 188.57142857142856,50 188.57142857142856,100"></path>
+      <path class="link" d="M251.42857142857142,0C251.42857142857142,50 314.2857142857143,50 314.2857142857143,100"></path>
+      <g class="node" transform="translate(314.28570556640625,100)">
+        <circle r="10" stroke="#00c13f" style="fill: rgb(255, 255, 255);">
+        </circle><text y="18" dy=".35em" text-anchor="middle" style="fill-opacity: 1;">Manager</text>
+      </g>
+      <g class="node" transform="translate(251.42857360839844,200)">
+        <circle r="10" stroke="#00c13f" style="fill: rgb(255, 255, 255);"></circle>
+        <text y="18" dy=".35em" text-anchor="middle" style="fill-opacity: 1;">Team Lead</text>
+      </g>
+        <g class="node" transform="translate(125.71428680419922,200)">
+          <circle r="10" stroke="#00c13f" style="fill: rgb(255, 255, 255);"></circle>
+          <text y="18" dy=".35em" text-anchor="middle" style="fill-opacity: 1;">Team Lead</text>
+        </g>
+          <g class="node" transform="translate(188.57142639160156,100)">
+            <circle r="10" stroke="steelblue" style="fill: rgb(255, 255, 255);"></circle>
+            <text y="-18" dy=".35em" text-anchor="middle" style="fill-opacity: 1;">Manager</text>
+          </g>
+          <g class="node" transform="translate(251.42857360839844,0)">
+            <circle r="10" stroke="steelblue" style="fill: rgb(255, 255, 255);"></circle>
+            <text y="-18" dy=".35em" text-anchor="middle" style="fill-opacity: 1;">BU Head</text>
+          </g>
+        </g>
+      </svg> -->
+    </div>
+
+
+    <script>
+        // tell the embed parent frame the height of the content
+        if (window.parent && window.parent.parent) {
+            window.parent.parent.postMessage(["resultsFrame", {
+                height: document.body.getBoundingClientRect().height,
+                slug: "Lrywwb2L"
+            }], "*")
+        }
+    </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -58,6 +58,7 @@ app.controller('messages', function($scope, $http) {
 			}
 		}).then(function(response) {
 			$scope.getMessages(user_id);
+			$scope.newMessage = '';
 		}, function(error) {
 			window.location.assign("/empLogin");
 		});

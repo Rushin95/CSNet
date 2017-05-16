@@ -16,18 +16,21 @@
 	<script type="text/javascript" src="ngjs/moderator_dashboard.js"></script>
 </head>
 
-<body style="background-color:#f2f2f2;" ng-app="myApp">
+<body style="background-color:#f2f2f2;" ng-app="myApp" ng-cloak>
 	<div ng-controller="moderatorDashboard">
 		<div class="row community-heading">
 			<div class="col-md-2 fa fa-users h1" style="text-align: right;border-right: 2px solid #3B3E43;margin-top: 12px;"></div>
 			<div class="col-md-8">
 				<span class="h1">{{community_name}}</span>
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-2">
+				<a href="http://localhost:8000/#/livechart"><div class="edit-button">Monitor</div></a>
+				<a href="/graph"><div class="edit-button">Heirarchy</div></a>
+			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8" style="margin-top:50px;">
+			<div class="col-md-4"></div>
+			<div class="col-md-4" style="margin-top:50px;">
 				<div class="row" style="margin-top: 50px;">
 					<div class="col-md-12 message" ng-show="showMessages" ng-click="showMessages = false; messages = []">
 						<div ng-repeat="message in messages">{{message}}</div>
@@ -37,9 +40,7 @@
 					</div>
 					<div class="comm-dashboard-box col-md-12" style="padding: 30px; ">
 						<div class="row ">
-							<div class="col-md-6 graph-box">
-							</div>
-							<div class="col-md-6">
+							<div class="col-md-12">
 								<form>
 									<div class="form-group">
 										<label for="role">Role</label>
@@ -80,7 +81,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-2 "></div>
+			<div class="col-md-4"></div>
 		</div>
 	</div>
 </body>
