@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="/Users/kalgi/Desktop/281 /Project/style.css" rel="stylesheet">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-input-masks/2.5.0/angular-input-masks-standalone.min.js"></script>
+</head>
+
+<body style="background-color:#f2f2f2;">
+    <div>
+        <div class="row community-heading">
+            <div class="col-md-2 fa fa-users h1" style="text-align: right;border-right: 2px solid #3B3E43;margin-top: 12px;"></div>
+            <div class="col-md-8">
+                <span class="h1">Home</span>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8" style="margin-top:50px;margin-bottom: 100px;">
+                <div class="row" style="margin-top: 50px;">
+                    <div class="comm-dashboard-box col-md-12">
+                        <div class="row">
+                            <div class="col-md-3 home-left-part">
+                                <div class="row home-left-part-top">
+                                    <div class="col-md-12">
+                                        <div class="row" style="margin-bottom: 20px;margin-top: 20px;">
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-5 home-left-picture-box">
+                                                <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="home-left-picture">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align: center;margin-bottom: 15px;">
+                                            <div class="edit-button">Edit</div>
+                                        </div>
+                                        <div class="row" style="text-align: center;">
+                                            <span class="home-name-title">Kalgi Bhatt</span>
+                                            <span class="glyphicon glyphicon-pencil" style="font-size: 14px;margin-left: 10px;"></span>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 20px;text-align: center;">
+                                            <span class="home-name-subtitle">Manager</span>
+                                            <span class="glyphicon glyphicon-pencil" style="font-size: 14px;margin-left: 10px;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row home-left-part-bottom">
+                                    <div class="col-md-12">
+                                        <div class="row left-tabs">
+                                            <div>Messages</div>
+                                        </div>
+                                        <div class="row left-tabs">
+                                            <div>Tasks</div>
+                                        </div>
+                                        <div class="row left-tabs">
+                                            <div>Logout</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9" style="padding: 0px 0px 20px 40px;">
+                                <div class="home-right-part-content">
+                                    <div class="row" style="margin-top: 20px;display: inline-flex;margin-left: 0px;">
+                                        <div class="input-group col-md-10">
+                                            <span class="input-group-addon login-glyph"><i class="glyphicon glyphicon-search"></i></span>
+                                            <input type="text" class="form-control search-box-text search-placeholder" placeholder="Search">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="btn-gsignup" type="button" class="search-button btn btn-success">Search</button>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 20px;margin-left: 0px;">
+                                        <div class="col-md-12" style="padding-left: 0px;">
+                                            <textarea class="form-control home-text-box" row="3" cols="8" placeholder="What's on your mind?"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 20px;margin-left: 0px;">
+                                        <div class="col-md-10" style="padding-left: 0px; line-height: 50px;">
+                                            <label class="radio-inline" style="float: right; margin-right: 30px;">
+                                                <input type="radio" name="optradio" style="height: 40px;">Private
+                                            </label>
+                                            <label class="radio-inline" style="float: right; margin-right: 30px;">
+                                                <input type="radio" name="optradio" style="height: 40px;">Public
+                                            </label>
+                                        </div>
+                                        <div class="col-md-2" style="padding-left: 0px;">
+                                            <button id="btn-gsignup" type="button" class="post-button btn btn-success">Post</button>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-right: 20px;margin-top: 20px;margin-left: 0px;">
+                                        <div class="col-md-12 right-bottom-box">
+                                            <div class="row" style="margin: 0px 5px 0px 5px;">
+                                                <div class="col-md-12 right-bottom-secondbox">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <div class="row">
+                                                                <div class="col-md-12 home-right-picture-box">
+                                                                    <img src="/Users/kalgi/Desktop/281 /Project/2.jpg" class="home-right-picture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-top: 10px;">
+                                                                <div class="col-md-12" style="text-align: center;width: 80%;text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);">
+                                                                    <a href="#">
+                                                                        <i class="fa fa-thumbs-o-up thumb-icon" aria-hidden="true"></i>
+                                                                        <i class="fa fa-thumbs-up thumb-icon" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12" style="text-align: center;width: 80%;color: blue;text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);">
+                                                                    <span>5</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="row post-host-name">
+                                                                <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                    Keyur Golani
+                                                                </div>
+                                                            </div>
+                                                            <div class="row post-text">
+                                                                <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                    Temporary Accommodation available for 2 people at 33 South 3rd Street Apartments from 25th May to Mid August. It's a 2 Bed 2.5 Bath townhouse apartment. Rent: $380 (Negotiable) Dates are negotiable.
+                                                                </div>
+                                                            </div>
+                                                            <div class="row post-timestamp">
+                                                                <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                    10 minutes ago
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                    <hr class="style2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-top: 10px;">
+                                                                <div class="col-md-2 comment-host-image-box">
+                                                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="comment-host-image">
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    <div class="row">
+                                                                        <span class="comment-host-name">Kalgi Bhatt</span>
+                                                                        <span class="comment-text">Interested</span>
+                                                                    </div>
+                                                                    <div class="row comment-timestamp">
+                                                                        <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                            10 minutes ago
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-top: 10px;">
+                                                                <div class="col-md-2 comment-host-image-box">
+                                                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="comment-host-image">
+                                                                </div>
+                                                                <div class="col-md-8" style="padding-left: 0px;margin-top: 5px;">
+                                                                    <input type="text" class="form-control comment-box-text search-placeholder" placeholder="Write a comment...">
+                                                                </div>
+                                                                <div class="col-md-2" style="margin-top: 5px;">
+                                                                    <button id="btn-gsignup" type="button" class="comment-button btn btn-success">Comment</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 right-bottom-secondbox">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <div class="row">
+                                                                <div class="col-md-12 home-right-picture-box">
+                                                                    <img src="/Users/kalgi/Desktop/281 /Project/2.jpg" class="home-right-picture">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-top: 10px;">
+                                                                <div class="col-md-12" style="text-align: center;width: 80%;text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);">
+                                                                    <a href="#">
+                                                                        <i class="fa fa-thumbs-o-up thumb-icon" aria-hidden="true"></i>
+                                                                        <i class="fa fa-thumbs-up thumb-icon" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12" style="text-align: center;width: 80%;color: blue;text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);">
+                                                                    <span>5</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="row post-host-name">
+                                                                <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                    Keyur Golani
+                                                                </div>
+                                                            </div>
+                                                            <div class="row post-text">
+                                                                <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                    Temporary Accommodation available for 2 people at 33 South 3rd Street Apartments from 25th May to Mid August. It's a 2 Bed 2.5 Bath townhouse apartment. Rent: $380 (Negotiable) Dates are negotiable.
+                                                                </div>
+                                                            </div>
+                                                            <div class="row post-timestamp">
+                                                                <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                    10 minutes ago
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                    <hr class="style2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-top: 10px;">
+                                                                <div class="col-md-2 comment-host-image-box">
+                                                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="comment-host-image">
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    <div class="row">
+                                                                        <span class="comment-host-name">Kalgi Bhatt</span>
+                                                                        <span class="comment-text">Interested</span>
+                                                                    </div>
+                                                                    <div class="row comment-timestamp">
+                                                                        <div class="col-md-12" style="padding-left: 0px!important;">
+                                                                            10 minutes ago
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="margin-top: 10px;">
+                                                                <div class="col-md-2 comment-host-image-box">
+                                                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="comment-host-image">
+                                                                </div>
+                                                                <div class="col-md-8" style="padding-left: 0px;margin-top: 5px;">
+                                                                    <input type="text" class="form-control comment-box-text search-placeholder" placeholder="Write a comment...">
+                                                                </div>
+                                                                <div class="col-md-2" style="margin-top: 5px;">
+                                                                    <button id="btn-gsignup" type="button" class="comment-button btn btn-success">Comment</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 "></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -8,9 +8,7 @@ var sendmail = require('sendmail')();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('index', {
-		title: 'Calculator'
-	});
+	res.render('accounts', {});
 });
 
 router.get('/signup', function(req, res, next) {

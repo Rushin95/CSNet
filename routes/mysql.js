@@ -1,4 +1,4 @@
-var ejs= require('ejs');
+var ejs = require('ejs');
 var mysql = require('mysql');
 var logger = require('../logger/logger');
 
@@ -6,65 +6,63 @@ var logger = require('../logger/logger');
 //var pool = require('mysql').createPool(opts);
 
 //Put your mysql configuration settings - user, password, database and port
-function getConnection(){
+function getConnection() {
 	var connection = mysql.createConnection({
-	    host     : 'localhost',
-	    user     : 'root',
-	    password : 'welcome123#',
-	    database : 'csnet',
-	    port	 : 3306
+		host: 'localhost',
+		user: 'root',
+		password: 'admin',
+		database: 'csnet',
+		port: 3306
 	});
 	return connection;
 }
 
 //connection pooling
 
-function Pool(num_conns)
-{
-    this.pool = [];
-    for(var i=0; i < num_conns; ++i)
-        this.pool.push(getConnection()); // your new Client + auth
-    this.last = 0;
+function Pool(num_conns) {
+	this.pool = [];
+	for (var i = 0; i < num_conns; ++i)
+		this.pool.push(getConnection()); // your new Client + auth
+	this.last = 0;
 }
 
-Pool.prototype.get = function()
-{
-    var cli = this.pool[this.last];
-    this.last++;
-    if (this.last == this.pool.length) // cyclic increment
-       this.last = 0;
-    return cli;
+Pool.prototype.get = function() {
+	var cli = this.pool[this.last];
+	this.last++;
+	if (this.last == this.pool.length) // cyclic increment
+		this.last = 0;
+	return cli;
 }
 
 var p = new Pool(10);
 
 
 // function fetchData(callback,sqlQuery,JSON_args){
-	
+
 
 // 	var connection=getConnection();
-	
+
 // 	var query = p.get().query(sqlQuery,JSON_args, function(err, rows, fields) {
 // 		if(err){
-			
+
 // 			console.log("ERROR: " + err.message);
 // 		}
-// 		else 
+// 		else
 // 		{	// return err or result
 // //			console.log(rows);
 // 			callback(err, rows);
 // 		}
-		
+
 // 	});
 // 	logger.log('info',query.sql);
 // //	connection.end();
-// }	
+// }
 
 //normal mysql connection
-function executeQuery(callback, sqlQuery,JSON_args) {
-	
+function executeQuery(callback, sqlQuery, JSON_args) {
+
 	var connection = getConnection();
-	connection.query(sqlQuery,JSON_args, function(err, rows, fields) {
+	connection.query(sqlQuery, JSON_args, function(err, rows, fields) {
 		if (err) {
 			console.log("ERROR: " + err.message);
 		} else { // return err or result
@@ -80,4 +78,4 @@ function executeQuery(callback, sqlQuery,JSON_args) {
 
 
 
-exports.executeQuery=executeQuery;
+exports.executeQuery = executeQuery;

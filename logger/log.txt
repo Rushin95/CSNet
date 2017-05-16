@@ -28,3 +28,9 @@
 {"level":"info","message":"inside /signin get","timestamp":"2017-04-30T04:03:39.191Z"}
 {"level":"info","message":"inside /signin get","timestamp":"2017-04-30T04:04:06.258Z"}
 {"level":"info","message":"inside /signin get","timestamp":"2017-04-30T04:07:16.971Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:48:08.980Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:51.079Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:54.768Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:55.447Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:55.616Z"}
+{"level":"info","message":"signup was successful","timestamp":"2017-05-16T00:56:55.768Z"}
