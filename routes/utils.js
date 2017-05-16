@@ -32,3 +32,21 @@ module.exports.sendEmail = function(recepiant, subject, content, htmlContent, pr
 		processResult(result);
 	});
 };
+
+module.exports.generateLogin = function() {
+	var generatedString = "";
+	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	for (var i = 0; i < length; i++) {
+		generatedString += possible.charAt(Math.floor(Math.random() * 6));
+	}
+	return generatedString;
+};
+
+module.exports.generatePassword = function() {
+	var generatedString = "";
+	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	for (var i = 0; i < length; i++) {
+		generatedString += possible.charAt(Math.floor(Math.random() * 10));
+	}
+	return generatedString;
+};

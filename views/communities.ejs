@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="css/bootstrap.css" rel="stylesheet">
- 	<link href="/Users/kalgi/Desktop/281 /Project/style.css" rel="stylesheet">
 
+	  <meta charset="UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" type="text/css" href="modules/roboto-fontface/css/roboto/roboto-fontface.css">
+  	<link href="modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  	<link rel="stylesheet" href="modules/font-awesome/css/font-awesome.css">
+  	<link href="css/style.css" rel="stylesheet">
   	<title>Community</title>
-
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css'/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-input-masks/2.5.0/angular-input-masks-standalone.min.js"></script>
-  <script src="angularjs/community.js"></script>
+  	<script type="text/javascript" src="modules/jquery/dist/jquery.js"></script>
+  	<script type="text/javascript" src="modules/bootstrap/dist/js/bootstrap.js"></script>
+  	<script type="text/javascript" src="modules/angular/angular.js"></script>
+  	<script src="ngjs/communities.js"></script>
   </head>
-  <body style="background-color:#f2f2f2;" ng-app="myApp" ng-controller="communityCtrl" class="container" ng-init="load();">
-  
+  <body style="background-color:#f2f2f2;" ng-app="myApp" ng-controller="communities" class="container" ng-init="load();">
+
 	<div>
 		<div class="row community-heading">
 			<div class="col-md-2 fa fa-users h1" style="text-align: right;border-right: 2px solid #3B3E43;margin-top: 12px;"></div>
@@ -40,7 +31,7 @@
   			<div class="col-md-8" style="margin-top:50px;">
   				<div class="row" style="margin-top: 50px;">
   					<div ng-repeat="x in records" class="community-box col-md-4" style="line-height: 100px;text-align: center;">{{x.name}}</div>
-  					
+
   				</div>
   				<div class="row" style="margin-top: 50px;">
   					<div class="community-box col-md-4 glyphicon glyphicon-plus" style="font-size: 50px;line-height: 100px;text-align: center;"></div>
@@ -55,7 +46,7 @@
   					<div class="add-new-comm-box col-md-12" style="padding: 30px;">
   						<div class="row">
   							<div class="col-md-6" style="text-align: right;">
-  								New Community Name:	
+  								New Community Name:
   							</div>
   							<div class="col-md-6">
   								<input type="text" ng-model="community" class="form-control" name="community" id="community" placeholder="Name of the Community">

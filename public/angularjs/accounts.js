@@ -17,7 +17,6 @@ app.controller('accounts', function($scope, $http) {
 				"email": $scope.email,
 				"password": $scope.password
 			}
-
 		}).then(function(response) {
 			if (response.data.statusCode == 401) {
 				$scope.errors.push("Login Failed. Please try again!");

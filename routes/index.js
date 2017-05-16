@@ -86,7 +86,7 @@ router.post('/signin', function(req, res, next) {
 
 
 
-router.post('/getCommunity', function(req, res, next) {
+router.post('/getCommunities', function(req, res, next) {
 	mysql.executeQuery(function(err, results) {
 		if (err) {
 			res.send({
@@ -124,8 +124,8 @@ router.post('/community', function(req, res, next) {
 });
 
 router.post('/addRole', function(req, res, next) {
-	var login = generateLogin();
-	var password = generatePassword();
+	var login = utils.generateLogin();
+	var password = utils.generatePassword();
 	mysql.executeQuery(function() {
 		utils.sendEmail(req.body.new_email, "CSNet Role Credentials", "User Name: " + login + "\n" + "Password" + password, function(email_result) {
 			res.send({
