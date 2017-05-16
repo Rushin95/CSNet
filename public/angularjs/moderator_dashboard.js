@@ -5,7 +5,7 @@ app.controller('moderatorDashboard', function($scope, $http, $location, $window)
 	$scope.community = $location.search().community_id;
 	$scope.form = {}
 	$scope.form.replace = false;
-	$scope.form.levels = [1, 2, 3, 4, 5]
+	$scope.form.levels = [1, 2, 3]
 
 	$scope.fetchCommunityName = function() {
 		$http({
@@ -80,7 +80,7 @@ app.controller('moderatorDashboard', function($scope, $http, $location, $window)
 				'new_email': $scope.form.new_email
 			}
 		}).then(function(response) {
-			$scope.community_details = response.data.details;
+			// $scope.community_details = response.data.details;
 		}, function(error) {
 			$window.location.href = "/communities";
 		});

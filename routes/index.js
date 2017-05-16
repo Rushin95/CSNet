@@ -1,10 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('./mysql');
-var logger = require('../logger/logger');
-var nodemailer = require('nodemailer');
-
-var sendmail = require('sendmail')();
+var utils = require('./utils');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -88,6 +85,26 @@ router.post('/signin', function(req, res, next) {
 		}
 	}, "select * from user_details where email=?", [email]);
 
+});
+
+router.post('/addRole', function(req, res, next) {
+	var login = generateLogin();
+	var password = generatePassword();
+	mysql.executeQuery(function() {
+		utils.sendEmail(req.body.new_email, "CSNet Role Credentials", "User Name: " + login + "\n" + "Password" + password, function(email_result) {
+			res.send({
+				'statusCode': 200
+			})
+		})
+	}, "INSERT INTO user_details SET ?", {
+		'role': req.body.role,
+		'level': req.body.level,
+		'description': req.body.description,
+		'name': req.body.new_name,
+		'email': req.body.new_email,
+		'login': login,
+		'password': password
+	})
 });
 
 module.exports = router;
