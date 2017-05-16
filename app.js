@@ -17,7 +17,6 @@ app.set('view engine', 'ejs');
 
 
 app.use(session({
-
 	cookieName: 'session',
 	secret: '281_user',
 	duration: 30 * 60 * 1000, //setting the time for active session
