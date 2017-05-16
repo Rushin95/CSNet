@@ -24,6 +24,17 @@ app.controller('dashboard', function($scope, $http) {
 		});
 	};
 
+	$scope.logout = function() {
+		$http({
+			method: "POST",
+			url: '/logout'
+		}).then(function(response) {
+			window.location.assign("/empLogin");
+		}, function(error) {
+			window.location.assign("/empLogin");
+		});
+	}
+
 	$scope.updateName = function() {
 		$http({
 			method: "POST",

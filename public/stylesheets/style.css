@@ -312,7 +312,7 @@ input.message-placeholder::-webkit-input-placeholder {
 	background-color: rgba(0,0,255,0.1);
 	border-radius: 10px;
 	color: black;
-    padding: 3px 0px 3px 10px;
+    padding: 10px 0px 10px 10px;
     margin: 5px 0px 5px 0px;
 }
 
@@ -320,7 +320,7 @@ input.message-placeholder::-webkit-input-placeholder {
 	height: auto;
 	background-color: #f2f2f2;
 	border-radius: 10px;
-    padding: 3px 0px 3px 10px;
+    padding: 10px 0px 10px 10px;
     margin: 5px 0px 5px 0px;
 }
 
@@ -435,6 +435,7 @@ input.message-placeholder::-webkit-input-placeholder {
     border-bottom: 1px solid white;
     text-align: center;
     padding: 10px 0px 10px 0px;
+	cursor: pointer;
 }
 
 .search-box-text {

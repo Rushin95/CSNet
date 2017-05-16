@@ -2,316 +2,107 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <title>Messages</title>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-input-masks/2.5.0/angular-input-masks-standalone.min.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="modules/roboto-fontface/css/roboto/roboto-fontface.css">
+	<link href="modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="modules/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="modules/animate.css/animate.css">
+	<link href="css/style.css" rel="stylesheet">
+	<title>Messages</title>
+	<script type="text/javascript" src="modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="modules/angular/angular.js"></script>
+	<script src="modules/angular-base64-upload/dist/angular-base64-upload.js"></script>
+	<script type="text/javascript" src="ngjs/message_box.js"></script>
 </head>
 
-<body style="background-color:#f2f2f2;">
-    <div>
-        <div class="row community-heading">
-            <div class="col-md-2 fa fa-comment h1" style="text-align: right;border-right: 2px solid #3B3E43;margin-top: 12px;"></div>
-            <div class="col-md-8">
-                <span class="h1">Messages</span>
-            </div>
-            <div class="col-md-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8 message-whole-box">
-                <div class="row message-head">
-                    <div class="col-md-3 blank-message-box"></div>
-                    <div class="col-md-9 message-head-name">
-                        <div class="row message-head-title">
-                            Manager
-                        </div>
-                        <div class="row message-head-subtitle">
-                            Kalgi Bhatt
-                        </div>
-                    </div>
-                </div>
-                <div class="row message-body">
-                    <div class="col-md-3 message-left-part">
-                        <div class="content">
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                            <div class="row" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px;">
-                                <div class="col-md-3 profile-picture-box">
-                                    <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                </div>
-                                <div class="col-md-6 message-right-part">
-                                    <div class="row">Manager</div>
-                                    <div class="row" style="color: #aaa;">Kalgi</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9" style="position: inherit;margin-top: 10px; padding: 0px;">
-                        <div class="right-content">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-6">
-                                            <div class="row message-right-box">
-                                                Hi this is Kalgi. How are you ? I am a graduate student studying at San Jose State University.
-                                            </div>
-                                            <div style="color: gray;text-align: right;">10 minutes ago</div>
-                                        </div>
-                                        <div class="col-md-2 profile-picture-box">
-                                            <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="col-md-2 profile-picture-box">
-                                            <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row message-left-box">
-                                                Hi this is Kalgi. How are you ? I am a graduate student studying at San Jose State University.
-                                            </div>
-                                            <div style="color: gray;text-align: left;">10 minutes ago</div>
-                                        </div>
-                                        <div class="col-md-4"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-6">
-                                            <div class="row message-right-box">
-                                                Hi this is Kalgi. How are you ? I am a graduate student studying at San Jose State University.
-                                            </div>
-                                            <div style="color: gray;text-align: right;">10 minutes ago</div>
-                                        </div>
-                                        <div class="col-md-2 profile-picture-box">
-                                            <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="col-md-2 profile-picture-box">
-                                            <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row message-left-box">
-                                                Hi this is Kalgi. How are you ? I am a graduate student studying at San Jose State University.
-                                            </div>
-                                            <div style="color: gray;text-align: left;">10 minutes ago</div>
-                                        </div>
-                                        <div class="col-md-4"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-6">
-                                            <div class="row message-right-box">
-                                                Hi this is Kalgi. How are you ? I am a graduate student studying at San Jose State University.
-                                            </div>
-                                            <div style="color: gray;text-align: right;">10 minutes ago</div>
-                                        </div>
-                                        <div class="col-md-2 profile-picture-box">
-                                            <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="col-md-2 profile-picture-box">
-                                            <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row message-left-box">
-                                                Hi this is Kalgi. How are you ? I am a graduate student studying at San Jose State University.
-                                            </div>
-                                            <div style="color: gray;text-align: left;">10 minutes ago</div>
-                                        </div>
-                                        <div class="col-md-4"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-6">
-                                            <div class="row message-right-box">
-                                                Hi this is Kalgi. How are you ? I am a graduate student studying at San Jose State University.
-                                            </div>
-                                            <div style="color: gray;text-align: right;">10 minutes ago</div>
-                                        </div>
-                                        <div class="col-md-2 profile-picture-box">
-                                            <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-bottom: 10px;">
-                                        <div class="col-md-2 profile-picture-box">
-                                            <img src="/Users/kalgi/Desktop/281 /Project/1.jpg" class="profile-picture">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row message-left-box">
-                                                Hi this is Kalgi. How are you ? I am a graduate student studying at San Jose State University.
-                                            </div>
-                                            <div style="color: gray;text-align: left;">10 minutes ago</div>
-                                        </div>
-                                        <div class="col-md-4"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row message-bottom-row">
-                            <div class="col-md-11 write-message-part">
-                                <input type="text" class="form-control text-box message-placeholder" placeholder="Type a message">
-                            </div>
-                            <div class="col-md-1 fa fa-paper-plane send-button"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 "></div>
-        </div>
-    </div>
+<body style="background-color:#f2f2f2;" ng-app="myApp" ng-controller="messages">
+	<div>
+		<div class="row community-heading">
+			<div class="col-md-2 fa fa-comment h1" style="text-align: right;border-right: 2px solid #3B3E43;margin-top: 12px;"></div>
+			<div class="col-md-8">
+				<span class="h1">Messages</span>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 message-whole-box">
+				<div class="row message-head">
+					<div class="col-md-3 blank-message-box"></div>
+					<div class="col-md-9 message-head-name">
+						<div class="row message-head-title">
+							{{role}}
+						</div>
+						<div class="row message-head-subtitle">
+							{{name}}
+						</div>
+					</div>
+				</div>
+				<div class="row message-body">
+					<div class="col-md-3 message-left-part">
+						<div class="content">
+							<div class="row" ng-repeat="role in roles" ng-click="getMessages(role.role_id)" style="background-color: #f2f2f2;padding: 10px 0px 10px 0px; cursor: pointer;">
+								<div class="col-md-3 profile-picture-box">
+									<img ng-show="role.photo" data-ng-src="data:{{role.photo.filetype}};base64,{{role.photo.base64}}" class="profile-picture">
+									<img ng-hide="role.photo" ng-src="/images/3.png" class="profile-picture">
+								</div>
+								<div class="col-md-6 message-right-part">
+									<div class="row">{{role.role}}</div>
+									<div class="row" style="color: #aaa;">{{role.name}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-9" style="position: inherit;margin-top: 10px; padding: 0px;">
+						<div class="right-content">
+							<div class="row">
+								<div class="col-md-12">
+									<div ng-repeat="message in messages">
+										<div class="row" style="margin-bottom: 10px;" ng-show="message.sender === user.role_id">
+											<div class="col-md-4"></div>
+											<div class="col-md-6">
+												<div class="row message-right-box">
+													{{message.message}}
+												</div>
+												<div style="color: gray;text-align: right;">{{timestamp}}</div>
+											</div>
+											<div class="col-md-2 profile-picture-box">
+												<img ng-show="user.photo" data-ng-src="data:{{user.photo.filetype}};base64,{{user.photo.base64}}" class="profile-picture">
+												<img ng-hide="user.photo" ng-src="/images/3.png" class="profile-picture">
+											</div>
+										</div>
+										<div class="row" style="margin-bottom: 10px;" ng-hide="message.sender === user.role_id">
+											<div class="col-md-2 profile-picture-box">
+												<img ng-show="friendPhoto" data-ng-src="data:{{friendPhoto.filetype}};base64,{{friendPhoto.base64}}" class="profile-picture">
+												<img ng-hide="friendPhoto" ng-src="/images/3.png" class="profile-picture">
+											</div>
+											<div class="col-md-6">
+												<div class="row message-left-box">
+													{{message.message}}
+												</div>
+												<div style="color: gray;text-align: left;">{{timestamp}}</div>
+											</div>
+											<div class="col-md-4"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row message-bottom-row">
+							<div class="col-md-11 write-message-part">
+								<input type="text" ng-model="newMessage" ng-enter="sendMessage(selectedChat)" class="form-control text-box message-placeholder" placeholder="Type a message">
+							</div>
+							<div class="col-md-1 fa fa-paper-plane send-button" ng-click="sendMessage(selectedChat)"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 "></div>
+		</div>
+	</div>
 </body>
 
 </html>
