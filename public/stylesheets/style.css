@@ -402,6 +402,8 @@ input.message-placeholder::-webkit-input-placeholder {
   -webkit-box-shadow: 1px 1px 5px #000;
   -moz-box-shadow: 1px 1px 5px #000;
   box-shadow: 1px 1px 5px #000;
+  position: relative;
+  overflow: hidden;
 }
 
 .edit-button:hover {
@@ -410,6 +412,19 @@ input.message-placeholder::-webkit-input-placeholder {
   box-shadow: 3px 3px 5px #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.edit-button input.profile-photo-upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	height: 64px;
+	width: 232px;
 }
 
 .home-left-part-top {

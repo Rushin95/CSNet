@@ -54,5 +54,16 @@ CREATE TABLE `post_details` (
   `timestamp` TIMESTAMP,
   `owner` INT(10),
   `is_public` BOOLEAN,
+  `appid` INT(10),
   PRIMARY KEY (`post_id`)
+);
+
+DROP TABLE IF EXISTS `comment_details`;
+CREATE TABLE `comment_details` (
+  `comment_id` INT(10) NOT NULL AUTO_INCREMENT,
+  `post` INT(10) NULL,
+  `timestamp` TIMESTAMP,
+  `owner` INT(10),
+  `comment` VARCHAR(255),
+  PRIMARY KEY (`comment_id`)
 );

@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('client-sessions');
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('mongodb://localhost:27017/csnet');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -35,6 +38,11 @@ app.use('/css', express.static(path.join(__dirname, 'public/stylesheets')));
 app.use('/js', express.static(path.join(__dirname, 'public/js')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use('/ngjs', express.static(path.join(__dirname, 'public/angularjs')));
+
+app.use(function(req, res, next) {
+	req.db = db;
+	next();
+});
 
 app.use('/', routes);
 app.use('/users', users);

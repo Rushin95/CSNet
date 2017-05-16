@@ -136,7 +136,6 @@ router.post('/getCommunities', function(req, res, next) {
 				'statusCode': 401
 			})
 		} else {
-			console.log('results', results);
 			res.send(results);
 		}
 	}, "select * from app_details where owner = ?", [req.session.user.user_id]);
@@ -169,7 +168,7 @@ router.post('/addRole', function(req, res, next) {
 	var login = utils.generateLogin();
 	var password = utils.generatePassword();
 	mysql.executeQuery(function() {
-		utils.sendEmail(req.body.new_email, "CSNet Role Credentials", "User Name: " + login + "\n" + "Password" + password, function(email_result) {
+		utils.sendEmail(req.body.new_email, "CSNet Role Credentials", "User Name: " + login + "\n" + "Password: " + password, function(email_result) {
 			res.send({
 				'statusCode': 200
 			})
@@ -186,9 +185,42 @@ router.post('/addRole', function(req, res, next) {
 });
 
 router.post('/getUser', function(req, res, next) {
-	mysql.executeQuery(function(err, role_details) {
-		res.send(role_details)
-	}, "SELECT * FROM role_details where role_id = ?", [req.session.user.user_id])
+	req.db.get('photos').findOne({
+		'_id': req.body.user ? req.body.user : req.session.user.user_id
+	}).then(function(result) {
+		mysql.executeQuery(function(err, role_details) {
+			role_details[0].photo = result.photo;
+			res.send(role_details)
+		}, "SELECT * FROM role_details where role_id = ?", [req.body.user ? req.body.user : req.session.user.user_id]);
+	}, function(error) {
+		res.send({
+			'statusCode': 401
+		})
+	})
+});
+
+router.post('/updatePhoto', function(req, res, next) {
+	req.db.get('photos').remove({
+		'_id': req.session.user.user_id
+	}).then(function(result1) {
+		req.db.get('photos').insert({
+			'photo': req.body.photo,
+			'_id': req.session.user.user_id
+		}).then(function(result2) {
+			res.send({
+				'statusCode': 200
+			})
+		});
+	}, function(error) {
+		req.db.get('photos').insert({
+			'photo': req.body.photo,
+			'_id': req.session.user.user_id
+		}).then(function(result2) {
+			res.send({
+				'statusCode': 200
+			})
+		});
+	})
 });
 
 router.post('/updateName', function(req, res, next) {
@@ -199,7 +231,7 @@ router.post('/updateName', function(req, res, next) {
 		res.send({
 			'statusCode': 200
 		});
-	}, 'UPDATE role_details SET name = ? WHERE role_id = ?;', [req.body.name, req.session.user.user_id])
+	}, 'UPDATE role_details SET name = ? WHERE role_id = ?', [req.body.name, req.session.user.user_id])
 });
 
 router.post('/search', function(req, res, next) {
@@ -243,11 +275,52 @@ router.post('/getPosts', function(req, res, next) {
 		if (err) {
 			throw err;
 		}
-		mysql.executeQuery(function(err, search_result) {
+		mysql.executeQuery(function(err, posts_result) {
 			if (err) {
 				throw err;
 			}
-			res.send(search_result);
+			var ids = []
+			var postIds = []
+			for (var i = 0; i < posts_result.length; i++) {
+				ids.push(posts_result[i].role_id);
+				postIds.push(posts_result[i].post_id);
+				posts_result[i].comments = [];
+			}
+			mysql.executeQuery(function(err, comments_result) {
+				if (err) {
+					throw err;
+				}
+				var commentIds = [];
+				for (var k = 0; k < comments_result.length; k++) {
+					commentIds.push(comments_result[k].owner)
+				}
+				req.db.get('photos').find({
+					'_id': {
+						$in: commentIds
+					}
+				}).then(function(comment_photos) {
+					for (var k = 0; k < comments_result.length; k++) {
+						comments_result[k].photo = comment_photos[k].photo;
+						for (var l = 0; l < posts_result.length; l++) {
+							if (posts_result[l].post_id === comments_result[k].post) {
+								posts_result[l].comments.push(comments_result[k]);
+							}
+						}
+					}
+					req.db.get('photos').find({
+						'_id': {
+							$in: ids
+						}
+					}).then(function(result) {
+						for (var j = 0; j < result.length; j++) {
+							posts_result[j].photo = result[j].photo
+						}
+						res.send(posts_result);
+					}, function(error) {
+						throw error;
+					})
+				})
+			}, "select * from comment_details, role_details where post in (" + postIds.join(",") + ") and owner = role_id")
 		}, 'SELECT * FROM post_details, role_details where owner = role_id and post_details.appid = ? order by timestamp desc', [app_id_result[0].appid]);
 	}, 'SELECT appid FROM role_details where role_id = ?', [req.session.user.user_id]);
 });

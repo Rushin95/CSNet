@@ -1,4 +1,4 @@
-var app = angular.module("myApp", []);
+var app = angular.module("myApp", ['naif.base64']);
 
 app.controller('dashboard', function($scope, $http) {
 
@@ -17,6 +17,8 @@ app.controller('dashboard', function($scope, $http) {
 		}).then(function(response) {
 			$scope.name = response.data[0].name;
 			$scope.role = response.data[0].role;
+			$scope.newPhoto = response.data[0].photo;
+			$scope.user = response.data[0];
 		}, function(error) {
 			window.location.assign("/empLogin");
 		});
@@ -104,31 +106,44 @@ app.controller('dashboard', function($scope, $http) {
 			} else {
 				$scope.posts = response.data;
 				$scope.posts.forEach(function(element, idx, array) {
-					array[idx].comments = [];
-					array[idx].likes = parseInt(Math.random() * 6);
-					if (element.name == 'Keyur Golani') {
-						array[idx].photo = '/images/1.jpg';
-						array[idx].comments.push({
-							photo: '/images/2.jpg',
-							name: 'Kalgi Bhatt',
-							timestamp: 'Now',
-							text: 'Cool!'
-						})
-					}
-					if (element.name == 'Kalgi Bhatt') {
-						array[idx].photo = '/images/2.jpg';
-						array[idx].comments.push({
-							photo: '/images/1.jpg',
-							name: 'Keyur Golani',
-							timestamp: 'Now',
-							text: 'Wow! Great.'
-						})
-					}
-					array[idx].like = Math.random() > 0.5;
+					array[idx].like = false;
 				})
 			}
 		}, function(error) {
 			$scope.posts = [];
+		});
+	}
+
+	$scope.comment = function(idx) {
+		$scope.posts[idx].comments.push({
+			'comment': $scope.posts[idx].newcomment,
+			'timestamp': 'Now',
+			'photo': $scope.user.photo,
+			'name': $scope.user.name
+		});
+		$scope.posts[idx].newcomment = '';
+	}
+
+	$scope.changePhoto = function() {
+		$http({
+			method: "POST",
+			url: '/updatePhoto',
+			data: {
+				"photo": $scope.newPhoto
+			}
+		}).then(function(response) {
+			if (response.data.statusCode === 401) {
+				$scope.errors.push("Internal Error. Please try again later!")
+				$scope.showErrors = true;
+			} else {
+				$scope.messages.push("Photo updated successfully!");
+				$scope.showMessages = true;
+				$scope.getPosts();
+				$scope.getUserDetails();
+			}
+		}, function(error) {
+			$scope.errors.push("Internal Error. Please try again later!")
+			$scope.showErrors = true;
 		});
 	}
 

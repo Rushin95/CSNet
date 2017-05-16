@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-base64-upload": "^0.1.22",
     "animate.css": "^3.5.2",
     "body-parser": "~1.15.1",
     "bootstrap": "^3.3.7",
@@ -18,6 +19,8 @@
     "fecha": "^2.3.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "mongodb": "^2.2.26",
+    "monk": "^4.0.0",
     "morgan": "~1.7.0",
     "mysql": "^2.13.0",
     "nodemailer": "^4.0.1",

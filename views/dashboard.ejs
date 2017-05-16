@@ -14,6 +14,7 @@
 	<script type="text/javascript" src="modules/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script type="text/javascript" src="modules/angular/angular.js"></script>
+	<script src="modules/angular-base64-upload/dist/angular-base64-upload.js"></script>
 	<script type="text/javascript" src="ngjs/dashboard.js"></script>
 </head>
 
@@ -44,11 +45,18 @@
                                         <div class="row" style="margin-bottom: 20px;margin-top: 20px;">
                                             <div class="col-md-2"></div>
                                             <div class="col-md-5 home-left-picture-box">
-                                                <img src="/images/1.jpg" class="home-left-picture">
+                                                <img ng-show="newPhoto" data-ng-src="data:{{newPhoto.filetype}};base64,{{newPhoto.base64}}" class="home-left-picture">
+												<img ng-hide="newPhoto" ng-src="/images/3.png" class="home-left-picture">
                                             </div>
                                         </div>
                                         <div class="row" style="text-align: center;margin-bottom: 15px;">
-                                            <div class="edit-button">Edit</div>
+                                            <div class="edit-button">
+												Edit
+												<input type="file" ng-model="newPhoto" class="profile-photo-upload" name="newPhoto" base-sixty-four-input accept="image/*" minsize="500" maxsize="16000" required>
+											</div>
+											<div class="edit-button" ng-click="changePhoto()">
+												Upload
+											</div>
                                         </div>
                                         <div class="row" style="text-align: center;">
                                             <span class="home-name-title" ng-show="!editName">{{name}}</span>
@@ -119,7 +127,7 @@
                                                         <div class="col-md-2">
                                                             <div class="row">
                                                                 <div class="col-md-12 home-right-picture-box">
-                                                                    <img src="{{post.photo}}" class="home-right-picture">
+                                                                    <img data-ng-src="data:{{post.photo.filetype}};base64,{{post.photo.base64}}" class="home-right-picture">
                                                                 </div>
                                                             </div>
                                                             <div class="row" style="margin-top: 10px;">
@@ -159,12 +167,13 @@
                                                             </div>
                                                             <div class="row" style="margin-top: 10px;" ng-repeat="comment in post.comments">
                                                                 <div class="col-md-2 comment-host-image-box">
-                                                                    <img src="{{comment.photo}}" class="comment-host-image">
+																	<img ng-show="comment.photo" data-ng-src="data:{{comment.photo.filetype}};base64,{{comment.photo.base64}}" class="comment-host-image">
+																	<img ng-hide="comment.photo" ng-src="/images/3.png" class="comment-host-image">
                                                                 </div>
                                                                 <div class="col-md-10">
                                                                     <div class="row">
                                                                         <span class="comment-host-name">{{comment.name}}</span>
-                                                                        <span class="comment-text">{{comment.text}}</span>
+                                                                        <span class="comment-text">{{comment.comment}}</span>
                                                                     </div>
                                                                     <div class="row comment-timestamp">
                                                                         <div class="col-md-12" style="padding-left: 0px!important;">
@@ -175,13 +184,14 @@
                                                             </div>
                                                             <div class="row" style="margin-top: 10px;">
                                                                 <div class="col-md-2 comment-host-image-box">
-                                                                    <img src="/images/1.jpg" class="comment-host-image">
+																	<img ng-show="newPhoto" data-ng-src="data:{{newPhoto.filetype}};base64,{{newPhoto.base64}}" class="comment-host-image">
+																	<img ng-hide="newPhoto" ng-src="/images/3.png" class="comment-host-image">
                                                                 </div>
                                                                 <div class="col-md-8" style="padding-left: 0px;margin-top: 5px;">
-                                                                    <input type="text" class="form-control comment-box-text search-placeholder" placeholder="Write a comment...">
+                                                                    <input type="text" ng-model="post.newcomment" class="form-control comment-box-text search-placeholder" placeholder="Write a comment...">
                                                                 </div>
                                                                 <div class="col-md-2" style="margin-top: 5px;">
-                                                                    <button id="id2" type="button" class="comment-button btn btn-success">Comment</button>
+                                                                    <button id="id2" type="button" class="comment-button btn btn-success" ng-click="comment($index)">Comment</button>
                                                                 </div>
                                                             </div>
                                                         </div>
