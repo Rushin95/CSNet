@@ -13,7 +13,7 @@
 .signup-button {
     color: #5cb85c!important;
     background-color: white!important;
-    border:none!important;
+    border: none!important;
     font-size: 16px!important;
     width: 100%;
     height: 50px;
@@ -60,7 +60,7 @@ hr.style1 {
 .login {
     color: #5cb85c!important;
     background-color: white!important;
-    border:none!important;
+    border: none!important;
     font-size: 16px!important;
     width: 100%;
     height: 50px;
@@ -69,7 +69,7 @@ hr.style1 {
 .account-change {
     color: #5cb85c!important;
     background-color: white!important;
-    border:none!important;
+    border: none!important;
     font-size: 16px!important;
     width: 75%;
     height: 50px;
@@ -176,19 +176,19 @@ hr.style1 {
 }
 
 .message-list {
-	background-color: white;
-	color: black;
+    background-color: white;
+    color: black;
 }
 
 .message-head {
-	border: 2px solid #dddddd!important;
-	height: 70px;
-	border-radius: 5px;
+    border: 2px solid #dddddd!important;
+    height: 70px;
+    border-radius: 5px;
 }
 
 .message-head-name {
-	background-color: #336699!important;
-	border-top-right-radius: 5px;
+    background-color: #336699!important;
+    border-top-right-radius: 5px;
     height: 65px;
 }
 
@@ -207,90 +207,90 @@ hr.style1 {
 }
 
 .message-whole-box {
-	-moz-box-shadow: 1px 1px 10px black!important;
+    -moz-box-shadow: 1px 1px 10px black!important;
     -webkit-box-shadow: 1px 1px 10px black!important;
     box-shadow: 1px 1px 10px black!important;
     border-radius: 5px;
-    margin-top:50px;
+    margin-top: 50px;
 }
 
 .blank-message-box {
-	background-color: #336699;
-	border-right: 2px solid #dddddd;
-	height: 65px;
-	border-top-left-radius: 5px;
+    background-color: #336699;
+    border-right: 2px solid #dddddd;
+    height: 65px;
+    border-top-left-radius: 5px;
 }
 
 .message-body {
-	background-color: white;
-	border: 2px solid #dddddd;
-	border-top: none!important;
+    background-color: white;
+    border: 2px solid #dddddd;
+    border-top: none!important;
 }
 
 .profile-picture-box {
-	border-radius: 50%;
-	width:70px!important;
-	margin-left: 20px;
-	padding-left: 0px!important;
+    border-radius: 50%;
+    width: 70px!important;
+    margin-left: 20px;
+    padding-left: 0px!important;
 }
 
 .profile-picture {
-	height: 50px;
-	width:50px;
-	border-radius: 50%;
-	margin-right: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
 }
 
 .message-left-part {
-	padding: 0px!important;
-	border-right: 2px solid #dddddd;
-	height: 550px;
+    padding: 0px!important;
+    border-right: 2px solid #dddddd;
+    height: 550px;
 }
 
 .content {
-	height:550px;
-   	overflow:auto;
-   	padding: 0px!important;
+    height: 550px;
+    overflow: auto;
+    padding: 0px!important;
 }
 
 .right-content {
-	height:470px;
-   	overflow:auto;
-   	padding: 0px!important;
+    height: 470px;
+    overflow: auto;
+    padding: 0px!important;
 }
 
 .message-right-part {
-	margin-left: 10px;
-	font-size: 18px;
+    margin-left: 10px;
+    font-size: 18px;
 }
 
 .write-message-part {
-	padding: 0px!important;
-	border-radius: 0px!important;
-	height: 70px;
-	border-right: 1px solid #ddd;
+    padding: 0px!important;
+    border-radius: 0px!important;
+    height: 70px;
+    border-right: 1px solid #ddd;
 }
 
 .text-box {
-	border: none!important;
-	box-shadow: none!important;
-	height: 70px!important;
-	font-size: 16px!important;
-	-moz-box-shadow: inset 0px 0px 3px black!important;
+    border: none!important;
+    box-shadow: none!important;
+    height: 70px!important;
+    font-size: 16px!important;
+    -moz-box-shadow: inset 0px 0px 3px black!important;
     -webkit-box-shadow: inset 0px 0px 3px black!important;
     box-shadow: inset 0px 0px 3px black!important;
 }
 
 .message-bottom-row {
-	position:absolute;
-	bottom: 0px;
-	width: 75%;
-	border-top: 1px solid #ddd;
+    position: absolute;
+    bottom: 0px;
+    width: 75%;
+    border-top: 1px solid #ddd;
     margin-left: 0px!important;
 }
 
 .send-button {
-	font-size: 30px!important;
+    font-size: 30px!important;
     line-height: 70px!important;
     text-align: center!important;
     background-color: blue;
@@ -306,24 +306,24 @@ input.message-placeholder::-webkit-input-placeholder {
 }
 
 .message-right-box {
-	height: auto;
-	background-color: rgba(0,0,255,0.1);
-	border-radius: 10px;
-	color: black;
+    height: auto;
+    background-color: rgba(0, 0, 255, 0.1);
+    border-radius: 10px;
+    color: black;
     padding: 3px 0px 3px 10px;
     margin: 5px 0px 5px 0px;
 }
 
 .message-left-box {
-	height: auto;
-	background-color: #f2f2f2;
-	border-radius: 10px;
+    height: auto;
+    background-color: #f2f2f2;
+    border-radius: 10px;
     padding: 3px 0px 3px 10px;
     margin: 5px 0px 5px 0px;
 }
 
 .login-glyph {
-    border:none!important;
+    border: none!important;
     border-bottom-right-radius: 0px!important;
     border-top-right-radius: 0px!important;
     background-color: white!important;
@@ -346,43 +346,45 @@ input.message-placeholder::-webkit-input-placeholder {
 }
 
 .message {
-  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
-  color: #ffffff!important;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-  font-size: 12px;
-  padding: 5px;
-  display: inline-block;
-  font-weight: bold;
-  margin: 5px 0px 5px 0px;
-  border-radius: 5px;
-  background-color: #12C309;
-  transition: box-shadow 0.2s ease-in-out;
+    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+    color: #ffffff!important;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    padding: 5px;
+    display: inline-block;
+    font-weight: bold;
+    margin: 5px 0px 5px 0px;
+    border-radius: 5px;
+    background-color: #12C309;
+    transition: box-shadow 0.2s ease-in-out;
+    text-align: center;
 }
 
 .message:hover {
-  -webkit-box-shadow: 0 3px 2px #777;
-  -moz-box-shadow: 0 3px 2px #777;
-  box-shadow: 0 3px 2px #777;
-  text-decoration: none;
+    -webkit-box-shadow: 0 3px 2px #777;
+    -moz-box-shadow: 0 3px 2px #777;
+    box-shadow: 0 3px 2px #777;
+    text-decoration: none;
 }
 
 .error {
-  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
-  color: #ffffff!important;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-  font-size: 12px;
-  padding: 5px;
-  display: inline-block;
-  font-weight: bold;
-  margin: 5px 0px 5px 0px;
-  border-radius: 5px;
-  background-color: #F75645;
-  transition: box-shadow 0.2s ease-in-out;
+    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+	color: #ffffff!important;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    padding: 5px;
+    display: inline-block;
+    font-weight: bold;
+    margin: 5px 0 5px 0;
+    border-radius: 5px;
+    background-color: #F75645;
+    transition: box-shadow 0.2s ease-in-out;
+    text-align: center;
 }
 
 .error:hover {
-  -webkit-box-shadow: 0 3px 2px #777;
-  -moz-box-shadow: 0 3px 2px #777;
-  box-shadow: 0 3px 2px #777;
-  text-decoration: none;
+    -webkit-box-shadow: 0 3px 2px #777;
+    -moz-box-shadow: 0 3px 2px #777;
+    box-shadow: 0 3px 2px #777;
+    text-decoration: none;
 }
