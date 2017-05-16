@@ -28,3 +28,5 @@
 {"level":"info","message":"inside /signin get","timestamp":"2017-04-30T04:03:39.191Z"}
 {"level":"info","message":"inside /signin get","timestamp":"2017-04-30T04:04:06.258Z"}
 {"level":"info","message":"inside /signin get","timestamp":"2017-04-30T04:07:16.971Z"}
+{"level":"info","message":"inside /signin get","timestamp":"2017-05-16T00:52:57.482Z"}
+{"level":"info","message":"inside /afterSignIn post","timestamp":"2017-05-16T00:53:02.723Z"}
