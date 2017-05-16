@@ -2,6 +2,12 @@ var app = angular.module('myApp', []);
 
 app.controller('communities', function($scope, $http) {
 
+	$scope.messages = [];
+	$scope.errors = [];
+	$scope.showMessages = false;
+	$scope.showErrors = false;
+	$scope.screen = 'communities';
+
 	$scope.gotosignup = function() {
 		window.location.assign("/signup");
 	}
@@ -10,40 +16,39 @@ app.controller('communities', function($scope, $http) {
 		$http({
 			method: "POST",
 			url: '/getCommunities'
-		}).then(function(data) {
-			console.log('data', data);
-			if (data.community) {
-				$scope.records = data.community;
+		}).then(function(response) {
+			if (response.data) {
+				$scope.records = response.data;
 			} else {
-				alert("somthing's wrong in callback of cart.js");
+				$scope.errors.push("Internal Error. Please try again later!")
+				$scope.showErrors = true;
 			}
 		}, function(error) {
-			// Do Nothing
+			$scope.errors.push("Internal Error. Please try again later!")
+			$scope.showErrors = true;
 		});
 	};
 
 	$scope.addCommunity = function() {
-		alert($scope.community);
 		$http({
 			method: "POST",
-			url: '/community',
+			url: '/addCommunity',
 			data: {
 				"community": $scope.community
 			}
-
-		}).then(function(data) {
-			if (data.statusCode == 401) {
-				alert("somthing's wrong in callback of community.js");
-				window.location.assign("/community");
+		}).then(function(response) {
+			if (response.data.statusCode == 401) {
+				$scope.errors.push("Internal Error. Please try again later!")
+				$scope.showErrors = true;
 			} else {
-
-				alert("You are successful.");
-				window.location.assign("/community");
+				$scope.messages.push("New Community Added");
+				$scope.load();
+				$scope.screen = 'communities';
+				$scope.community = '';
 			}
-
 		}, function(error) {
-			console.log(data.msg);
-			$scope.result = data.msg;
+			$scope.errors.push("Internal Error. Please try again later!")
+			$scope.showErrors = true;
 		});
 	};
 

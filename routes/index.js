@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
 	res.render('accounts', {});
 });
 
+router.get('/empLogin', function(req, res, next) {
+	res.render('empLogin', {});
+});
+
 router.get('/communities', function(req, res, next) {
 	res.render('communities', {});
 });
@@ -48,7 +52,6 @@ router.post('/signin', function(req, res, next) {
 	var password = req.body.password;
 
 	if (email === null || password === null) {
-		console.log(req.body);
 		res.send({
 			'statusCode': 401
 		});
@@ -84,7 +87,43 @@ router.post('/signin', function(req, res, next) {
 
 });
 
+router.post('/empLogin', function(req, res, next) {
+	var login = req.body.login;
+	var password = req.body.password;
 
+	if (login === null || password === null) {
+		res.send({
+			'statusCode': 401
+		});
+	}
+
+	mysql.executeQuery(function(err, results) {
+		if (err) {
+			throw err;
+		} else {
+			if (results.length > 0) {
+				if (password === results[0].password) {
+					// res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+					req.session.user = {
+						"user_id": results[0].role_id
+					};
+					res.send({
+						"statusCode": 200
+					});
+				} else {
+					res.send({
+						"statusCode": 403
+					});
+				}
+			} else {
+				res.send({
+					"statusCode": 401
+				});
+			}
+		}
+	}, "select * from role_details where login = ?", [login]);
+
+});
 
 router.post('/getCommunities', function(req, res, next) {
 	mysql.executeQuery(function(err, results) {
@@ -99,7 +138,7 @@ router.post('/getCommunities', function(req, res, next) {
 	}, "select * from app_details where owner = ?", [req.session.user.user_id]);
 });
 
-router.post('/community', function(req, res, next) {
+router.post('/addCommunity', function(req, res, next) {
 	mysql.executeQuery(function(err, results) {
 		if (err) {
 			res.send({
@@ -118,7 +157,7 @@ router.post('/community', function(req, res, next) {
 		}
 	}, "INSERT INTO app_details SET ?", {
 		"name": req.body.community,
-		"owner": req.session.username
+		"owner": req.session.user.user_id
 	});
 });
 

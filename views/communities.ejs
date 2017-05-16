@@ -21,28 +21,40 @@
 		<div class="row community-heading">
 			<div class="col-md-2 fa fa-users h1" style="text-align: right;border-right: 2px solid #3B3E43;margin-top: 12px;"></div>
 			<div class="col-md-8">
-				<!-- <span class="h1">Your Communities</span> -->
-				<span class="h1">Add New Community</span>
+				<span class="h1" ng-show="screen == 'communities'">Your Communities</span>
+				<span class="h1" ng-show="screen == 'addCommunity'">Add New Community</span>
 			</div>
 			<div class="col-md-2"></div>
 		</div>
-  		<div class="row">
+  		<div class="row" ng-show="screen == 'communities'">
   			<div class="col-md-2"></div>
   			<div class="col-md-8" style="margin-top:50px;">
+				<div class="col-md-12 message" ng-show="showMessages" ng-click="showMessages = false; messages = []">
+					<div ng-repeat="message in messages">{{message}}</div>
+				</div>
+				<div class="col-md-12 error" ng-show="showErrors" ng-click="showErrors = false; errors = []">
+					<div ng-repeat="error in errors">{{error}}</div>
+				</div>
   				<div class="row" style="margin-top: 50px;">
   					<div ng-repeat="x in records" class="community-box col-md-4" style="line-height: 100px;text-align: center;">{{x.name}}</div>
 
   				</div>
   				<div class="row" style="margin-top: 50px;">
-  					<div class="community-box col-md-4 glyphicon glyphicon-plus" style="font-size: 50px;line-height: 100px;text-align: center;"></div>
+  					<div class="community-box col-md-4 glyphicon glyphicon-plus" style="font-size: 50px;line-height: 100px;text-align: center;" ng-click="screen = 'addCommunity'"></div>
   				</div>
   			</div>
   			<div class="col-md-2"></div>
 		</div>
-		<div class="row">
+		<div class="row" ng-show="screen == 'addCommunity'">
   			<div class="col-md-2"></div>
   			<div class="col-md-8" style="margin-top:50px;">
-  				<div class="row" style="margin-top: 50px;"">
+				<div class="col-md-12 message" ng-show="showMessages" ng-click="showMessages = false; messages = []">
+					<div ng-repeat="message in messages">{{message}}</div>
+				</div>
+				<div class="col-md-12 error" ng-show="showErrors" ng-click="showErrors = false; errors = []">
+					<div ng-repeat="error in errors">{{error}}</div>
+				</div>
+  				<div class="row" style="margin-top: 50px;">
   					<div class="add-new-comm-box col-md-12" style="padding: 30px;">
   						<div class="row">
   							<div class="col-md-6" style="text-align: right;">
