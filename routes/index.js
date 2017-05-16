@@ -93,11 +93,10 @@ router.post('/getCommunities', function(req, res, next) {
 				'statusCode': 401
 			})
 		} else {
+			console.log('results', results);
 			res.send(results);
 		}
-	}, "select * from app_details where owner = ?", {
-		"owner": req.session.user.user_id
-	});
+	}, "select * from app_details where owner = ?", [req.session.user.user_id]);
 });
 
 router.post('/community', function(req, res, next) {
@@ -132,7 +131,7 @@ router.post('/addRole', function(req, res, next) {
 				'statusCode': 200
 			})
 		})
-	}, "INSERT INTO user_details SET ?", {
+	}, "INSERT INTO role_details SET ?", {
 		'role': req.body.role,
 		'level': req.body.level,
 		'description': req.body.description,

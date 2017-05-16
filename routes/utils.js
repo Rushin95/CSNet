@@ -1,3 +1,5 @@
+var nodemailer = require("nodemailer");
+
 module.exports.sendEmail = function(recepiant, subject, content, htmlContent, processResult) {
 	var transporter = nodemailer.createTransport({
 		service: 'gmail',
@@ -7,17 +9,17 @@ module.exports.sendEmail = function(recepiant, subject, content, htmlContent, pr
 		}
 	});
 
-	if (isFunc(htmlContent)) {
+	if (typeof htmlContent === 'function') {
 		processResult = htmlContent;
 	}
 
-	if (!exists(htmlContent) || isFunc(htmlContent)) {
+	if (!htmlContent || typeof htmlContent === 'function') {
 		// TODO: Add more sophisticated template
 		htmlContent = "<p>" + content + "</p>";
 	}
 
 	var mailOptions = {
-		from: '"ConnActivity - No Reply" <no-reply@connactivity.com>',
+		from: '"CSNet - No Reply" <no-reply@csnet.com>',
 		to: recepiant, // list of receivers
 		subject: subject,
 		text: content,
@@ -36,8 +38,8 @@ module.exports.sendEmail = function(recepiant, subject, content, htmlContent, pr
 module.exports.generateLogin = function() {
 	var generatedString = "";
 	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-	for (var i = 0; i < length; i++) {
-		generatedString += possible.charAt(Math.floor(Math.random() * 6));
+	for (var i = 0; i < 6; i++) {
+		generatedString += possible.charAt(Math.floor(Math.random() * possible.length));
 	}
 	return generatedString;
 };
@@ -45,8 +47,8 @@ module.exports.generateLogin = function() {
 module.exports.generatePassword = function() {
 	var generatedString = "";
 	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-	for (var i = 0; i < length; i++) {
-		generatedString += possible.charAt(Math.floor(Math.random() * 10));
+	for (var i = 0; i < 10; i++) {
+		generatedString += possible.charAt(Math.floor(Math.random() * possible.length));
 	}
 	return generatedString;
 };

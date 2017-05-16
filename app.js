@@ -18,9 +18,7 @@ app.set('view engine', 'ejs');
 
 app.use(session({
 	cookieName: 'session',
-	secret: '281_user',
-	duration: 30 * 60 * 1000, //setting the time for active session
-	activeDuration: 5 * 60 * 1000,
+	secret: '281_user'
 })); // setting time for the session to be active when the window is open // 5 minutes set currently
 
 

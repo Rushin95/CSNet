@@ -10,22 +10,17 @@ app.controller('communities', function($scope, $http) {
 		$http({
 			method: "POST",
 			url: '/getCommunities'
-		}).success(function(data) {
+		}).then(function(data) {
+			console.log('data', data);
 			if (data.community) {
 				$scope.records = data.community;
 			} else {
 				alert("somthing's wrong in callback of cart.js");
 			}
+		}, function(error) {
+			// Do Nothing
 		});
 	};
-
-	// $scope.records = [
-	//    "Alfreds Futterkiste",
-	//    "Berglunds snabbköp",
-	//    "Centro comercial Moctezuma",
-	//    "Ernst Handel",
-	//  ]
-
 
 	$scope.addCommunity = function() {
 		alert($scope.community);
@@ -36,7 +31,7 @@ app.controller('communities', function($scope, $http) {
 				"community": $scope.community
 			}
 
-		}).success(function(data) {
+		}).then(function(data) {
 			if (data.statusCode == 401) {
 				alert("somthing's wrong in callback of community.js");
 				window.location.assign("/community");
@@ -46,7 +41,7 @@ app.controller('communities', function($scope, $http) {
 				window.location.assign("/community");
 			}
 
-		}).error(function(error) {
+		}, function(error) {
 			console.log(data.msg);
 			$scope.result = data.msg;
 		});

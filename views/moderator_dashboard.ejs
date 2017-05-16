@@ -29,6 +29,12 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8" style="margin-top:50px;">
 				<div class="row" style="margin-top: 50px;">
+					<div class="col-md-12 message" ng-show="showMessages" ng-click="showMessages = false; messages = []">
+						<div ng-repeat="message in messages">{{message}}</div>
+					</div>
+					<div class="col-md-12 error" ng-show="showErrors" ng-click="showErrors = false; errors = []">
+						<div ng-repeat="error in errors">{{error}}</div>
+					</div>
 					<div class="comm-dashboard-box col-md-12" style="padding: 30px; ">
 						<div class="row ">
 							<div class="col-md-6 graph-box">
@@ -37,7 +43,7 @@
 								<form>
 									<div class="form-group">
 										<label for="role">Role</label>
-										<input id="role" type="text" class="form-control" placeholder="Enter role">
+										<input id="role" type="text" ng-model="form.role" class="form-control" placeholder="Enter role">
 									</div>
 									<div class="form-group">
 										<label for="level">Level</label>

@@ -6,6 +6,10 @@ app.controller('moderatorDashboard', function($scope, $http, $location, $window)
 	$scope.form = {}
 	$scope.form.replace = false;
 	$scope.form.levels = [1, 2, 3]
+	$scope.messages = [];
+	$scope.errors = [];
+	$scope.showMessages = false;
+	$scope.showErrors = false;
 
 	$scope.fetchCommunityName = function() {
 		$http({
@@ -80,9 +84,11 @@ app.controller('moderatorDashboard', function($scope, $http, $location, $window)
 				'new_email': $scope.form.new_email
 			}
 		}).then(function(response) {
-			// $scope.community_details = response.data.details;
+			$scope.messages.push("Role Added!");
+			$scope.showMessages = true;
 		}, function(error) {
-			$window.location.href = "/communities";
+			$scope.errors.push("Role Added!");
+			$scope.showErrors = true;
 		});
 	};
 
