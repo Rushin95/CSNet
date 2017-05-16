@@ -62,16 +62,14 @@ var p = new Pool(10);
 function executeQuery(callback, sqlQuery, JSON_args) {
 
 	var connection = getConnection();
-	connection.query(sqlQuery, JSON_args, function(err, rows, fields) {
+	var query = connection.query(sqlQuery, JSON_args, function(err, rows, fields) {
 		if (err) {
 			console.log("ERROR: " + err.message);
-		} else { // return err or result
-			console.log("DB Results:" + rows);
+		} else {
 			callback(err, rows);
 		}
 	});
-	// logger.log('info',query+JSON_args);
-	console.log("\nConnection closed..");
+	console.log('sqlQuery', query.sql);
 	connection.end();
 }
 

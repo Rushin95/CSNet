@@ -13,7 +13,7 @@
 .signup-button {
     color: #5cb85c!important;
     background-color: white!important;
-    border: none!important;
+    border:none!important;
     font-size: 16px!important;
     width: 100%;
     height: 50px;
@@ -60,7 +60,7 @@ hr.style1 {
 .login {
     color: #5cb85c!important;
     background-color: white!important;
-    border: none!important;
+    border:none!important;
     font-size: 16px!important;
     width: 100%;
     height: 50px;
@@ -69,7 +69,7 @@ hr.style1 {
 .account-change {
     color: #5cb85c!important;
     background-color: white!important;
-    border: none!important;
+    border:none!important;
     font-size: 16px!important;
     width: 75%;
     height: 50px;
@@ -176,19 +176,19 @@ hr.style1 {
 }
 
 .message-list {
-    background-color: white;
-    color: black;
+	background-color: white;
+	color: black;
 }
 
 .message-head {
-    border: 2px solid #dddddd!important;
-    height: 70px;
-    border-radius: 5px;
+	border: 2px solid #dddddd!important;
+	height: 70px;
+	border-radius: 5px;
 }
 
 .message-head-name {
-    background-color: #336699!important;
-    border-top-right-radius: 5px;
+	background-color: #336699!important;
+	border-top-right-radius: 5px;
     height: 65px;
 }
 
@@ -207,90 +207,92 @@ hr.style1 {
 }
 
 .message-whole-box {
-    -moz-box-shadow: 1px 1px 10px black!important;
+	-moz-box-shadow: 1px 1px 10px black!important;
     -webkit-box-shadow: 1px 1px 10px black!important;
     box-shadow: 1px 1px 10px black!important;
     border-radius: 5px;
-    margin-top: 50px;
+    margin-top:50px;
 }
 
 .blank-message-box {
-    background-color: #336699;
-    border-right: 2px solid #dddddd;
-    height: 65px;
-    border-top-left-radius: 5px;
+	background-color: #336699;
+	border-right: 2px solid #dddddd;
+	height: 65px;
+	border-top-left-radius: 5px;
 }
 
 .message-body {
-    background-color: white;
-    border: 2px solid #dddddd;
-    border-top: none!important;
+	background-color: white;
+	border: 2px solid #dddddd;
+	border-top: none!important;
 }
 
 .profile-picture-box {
-    border-radius: 50%;
-    width: 70px!important;
-    margin-left: 20px;
-    padding-left: 0px!important;
+	border-radius: 50%;
+	width:70px!important;
+	margin-left: 20px;
+	padding-left: 0px!important;
 }
 
 .profile-picture {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    margin-right: 20px;
+	height: 50px;
+	width:50px;
+	border-radius: 50%;
+	margin-right: 20px;
 }
 
 .message-left-part {
-    padding: 0px!important;
-    border-right: 2px solid #dddddd;
-    height: 550px;
+	padding: 0px!important;
+	border-right: 2px solid #dddddd;
+	height: 550px;
 }
 
 .content {
-    height: 550px;
-    overflow: auto;
-    padding: 0px!important;
+	height:550px;
+   	overflow-y: scroll;
+    overflow-x: hidden;
+   	padding: 0px!important;
 }
 
 .right-content {
-    height: 470px;
-    overflow: auto;
-    padding: 0px!important;
+	height:470px;
+   	overflow-y: scroll;
+    overflow-x: hidden;
+   	padding: 0px!important;
 }
 
 .message-right-part {
-    margin-left: 10px;
-    font-size: 18px;
+	margin-left: 10px;
+	font-size: 18px;
 }
 
 .write-message-part {
-    padding: 0px!important;
-    border-radius: 0px!important;
-    height: 70px;
-    border-right: 1px solid #ddd;
+	padding: 0px!important;
+	border-radius: 0px!important;
+	height: 70px;
+	border-right: 1px solid #ddd;
 }
 
 .text-box {
-    border: none!important;
-    box-shadow: none!important;
-    height: 70px!important;
-    font-size: 16px!important;
-    -moz-box-shadow: inset 0px 0px 3px black!important;
+	border: none!important;
+	box-shadow: none!important;
+	height: 70px!important;
+	font-size: 16px!important;
+	-moz-box-shadow: inset 0px 0px 3px black!important;
     -webkit-box-shadow: inset 0px 0px 3px black!important;
     box-shadow: inset 0px 0px 3px black!important;
 }
 
 .message-bottom-row {
-    position: absolute;
-    bottom: 0px;
-    width: 75%;
-    border-top: 1px solid #ddd;
+	position:absolute;
+	bottom: 0px;
+	width: 75%;
+	border-top: 1px solid #ddd;
     margin-left: 0px!important;
 }
 
 .send-button {
-    font-size: 30px!important;
+	font-size: 30px!important;
     line-height: 70px!important;
     text-align: center!important;
     background-color: blue;
@@ -306,24 +308,24 @@ input.message-placeholder::-webkit-input-placeholder {
 }
 
 .message-right-box {
-    height: auto;
-    background-color: rgba(0, 0, 255, 0.1);
-    border-radius: 10px;
-    color: black;
+	height: auto;
+	background-color: rgba(0,0,255,0.1);
+	border-radius: 10px;
+	color: black;
     padding: 3px 0px 3px 10px;
     margin: 5px 0px 5px 0px;
 }
 
 .message-left-box {
-    height: auto;
-    background-color: #f2f2f2;
-    border-radius: 10px;
+	height: auto;
+	background-color: #f2f2f2;
+	border-radius: 10px;
     padding: 3px 0px 3px 10px;
     margin: 5px 0px 5px 0px;
 }
 
 .login-glyph {
-    border: none!important;
+    border:none!important;
     border-bottom-right-radius: 0px!important;
     border-top-right-radius: 0px!important;
     background-color: white!important;
@@ -343,6 +345,227 @@ input.message-placeholder::-webkit-input-placeholder {
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
     height: 50px!important;
+}
+
+.home-left-part {
+    border-right: 1px solid white;
+}
+
+.home-right-part-content {
+    height:680px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.home-name-title {
+    font-size: 18px;
+    color: #f2f2f2;
+    font-weight: normal;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.home-name-subtitle {
+    font-size: 28px;
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.home-left-picture-box {
+    border-radius: 50%;
+    width:120px!important;
+    margin-left: 20px;
+    padding-left: 0px!important;
+}
+
+.home-left-picture {
+    height: 120px;
+    width:120px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.edit-button {
+  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+  color: #ffffff!important;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  font-size: 12px;
+  padding: 5px;
+  display: inline-block;
+  font-weight: bold;
+  margin: 5px 0px 5px 0px;
+  border-radius: 5px;
+  background-color: #00834B;
+  transition: box-shadow 0.2s ease-in-out;
+  -webkit-box-shadow: 1px 1px 5px #000;
+  -moz-box-shadow: 1px 1px 5px #000;
+  box-shadow: 1px 1px 5px #000;
+}
+
+.edit-button:hover {
+  -webkit-box-shadow: 3px 3px 5px #000;
+  -moz-box-shadow: 3px 3px 5px #000;
+  box-shadow: 3px 3px 5px #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.home-left-part-top {
+    border-bottom: 1px solid white;
+}
+
+.left-tabs {
+    border-bottom: 1px solid white;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+}
+
+.search-box-text {
+    border-bottom-left-radius: 0px!important;
+    border-top-left-radius: 0px!important;
+    border: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    height: 50px!important;
+    border-bottom-right-radius: 0px!important;
+    border-top-right-radius: 0px!important;
+}
+
+.search-button {
+    margin-left: -20px;
+    height: 50px;
+    width: 100%;
+    font-size: 16px!important;
+}
+
+.home-text-box {
+    height: 100px!important;
+    width: 97%!important;
+    font-size: 16px!important;
+}
+
+input.search-placeholder::-webkit-input-placeholder {
+    font-size: 16px;
+    line-height: 3;
+}
+
+.post-button {
+    margin-left: -20px;
+    height: 50px;
+    width: 100%;
+    font-size: 16px!important;
+}
+
+.right-bottom-box {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 10px black!important;
+}
+
+.right-bottom-secondbox {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.thumb-icon {
+    color: blue;
+    font-size: 25px;
+}
+
+.home-right-picture-box {
+    border-radius: 50%;
+    width:70px!important;
+    margin-left: 20px;
+    padding-left: 0px!important;
+}
+
+.home-right-picture {
+    height: 55px;
+    width:55px;
+    border-radius: 50%;
+    border: 2px solid blue;
+}
+
+.post-host-name {
+    font-size: 20px;
+    color: #336699;
+    text-shadow: none;
+}
+
+.post-text {
+    font-size: 16px;
+    color: black;
+    text-shadow: none;
+    text-align: justify;
+}
+
+hr.style2 {
+    border-top: 1px solid #ccc;
+    margin-bottom: 0px!important;
+}
+
+.comment-host-image-box {
+    border-radius: 50%;
+    width:60px!important;
+    padding-left: 0px!important;
+}
+
+.comment-host-image {
+    height: 45px;
+    width:45px;
+    border-radius: 50%;
+    border: 2px solid blue;
+}
+
+.comment-host-name {
+    font-size: 16px;
+    color: #336699;
+    text-shadow: none;
+}
+
+.comment-text {
+    font-size: 14px;
+    color: black;
+    text-shadow: none;
+    text-align: justify;
+}
+
+.post-timestamp {
+    color: gray;
+    text-align: left;
+    font-size: 14px;
+    text-shadow: none;
+    margin-top: 5px;
+}
+
+.comment-timestamp {
+    color: gray;
+    text-align: left;
+    font-size: 14px;
+    text-shadow: none;
+}
+
+.comment-box-text {
+    -moz-box-shadow: inset 0px 0px 1px black!important;
+    -webkit-box-shadow: inset 0px 0px 1px black!important;
+    box-shadow: inset 0px 0px 1px black!important;
+}
+
+.comment-button {
+    margin-left: -20px;
+    font-size: 16px!important;
+    height: 32px!important;
+    background-color: white!important;
+    color: blue!important;
+    -moz-box-shadow: 0px 0px 1px black!important;
+    -webkit-box-shadow: 0px 0px 1px black!important;
+    box-shadow: 0px 0px 1px black!important;
+    border: none!important;
 }
 
 .message {
@@ -387,4 +610,23 @@ input.message-placeholder::-webkit-input-placeholder {
     -moz-box-shadow: 0 3px 2px #777;
     box-shadow: 0 3px 2px #777;
     text-decoration: none;
+}
+
+.searchResults {
+	color: #FFFFFF;
+	margin-left: 0;
+	margin-right: 20px;
+	position: absolute;
+	width: 674px;
+	display: inline-flex;
+}
+
+.resultBox {
+	background-color: rgba(0, 0, 0, 0.8); border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; top: 2px;
+	-webkit-box-shadow: 0 3px 5px #000;
+    -moz-box-shadow: 0 3px 5px #000;
+    box-shadow: 0 3px 5px #000;
+	z-index: 1000;
+	max-height: 200px;
+
 }

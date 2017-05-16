@@ -52,3 +52,7 @@ module.exports.generatePassword = function() {
 	}
 	return generatedString;
 };
+
+module.exports.getTimestamp = function() {
+	return require('fecha').format(Date.now(), 'YYYY-MM-DD HH:mm:ss');
+};
